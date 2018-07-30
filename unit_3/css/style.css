@@ -21,7 +21,9 @@
   opacity: 1;
   margin-top: 50px;
   padding: 10px;
-  
+  border: solid;
+  border-width: 5px;
+
 
 
 
@@ -35,6 +37,8 @@ h2 {
   width:max-content;
   font-style: italic;
   margin-left: 20%;
+  border-width: 5px;
+  border: solid;
 }
 .tabs div{
   background-color: black;
@@ -98,4 +102,4 @@ div .footer {display:block;
     border: solid;
     margin-left: 150px
 }
-br {border: solid;}
+
