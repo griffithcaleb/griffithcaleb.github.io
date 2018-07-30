@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css?family=Orbitron');
+
+
+.header img {
+  width: 200px;
+  height: 200px;
+  background: #555;
+
+}
+
+.header h1{
+ 
+  font-family: 'Orbitron', sans-serif;
+  color: white;
+  background-color: black;
+  float: right;
+  font-size: 50px;
+  text-align: center;
+  width: 400px;
+  margin-right: 500px;
+  opacity: 1;
+  margin-top: 50px;
+  padding: 10px;
+  border: solid;
+  border-width: 5px;
+
+
+
+
+}
+h2 {
+   font-family: 'Orbitron', sans-serif;
+  color: white;
+  background-color: black;
+  text-align: center;
+  padding: 10px;
+  width:max-content;
+  font-style: italic;
+  margin-left: 20%;
+  border-width: 5px;
+  border: solid;
+}
+.tabs div{
+  background-color: black;
+  color: white;
+  opacity:;
+  display: inline-block;
+  margin-left: 100px;
+  margin-right:auto;
+font-family: 'Orbitron', sans-serif;
+	border: solid;
+	
+	padding: 20px;
+  font-size: 16px;
+}
+
+
+img.logo {width:200px;
+height:200px;
+padding-top;
+background-color: transparent;
+border-color:black;
+border: solid;;
+border-width: 12px;
+opacity:}
+
+img.record  {width:300px;
+height:300px;
+background-color: transparent;
+
+margin-left:200px;
+padding-top:100px;
+
+
+
+}
+
+
+img.play {width:300px;
+height:300px;
+margin-right:200px;
+margin-left: 150px;
+}
+
+
+div .footer {display:block;
+    height:20px;
+    width:80%;
+    margin-left: 200px;
+    margin-right: 200px;
+    width: 50%;
+    background-color: yellow;
+    width: 75px;}
+
+
+.fa {
+    padding: 15px;
+    font-size: 1px;
+    width: 100px;
+    text-align: center;
+    text-decoration: none;
+    background: yellow; 
+    opacity: ..92;
+    border: solid;
+    margin-left: 200px
+  ;
+}
+
