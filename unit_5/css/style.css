@@ -88,10 +88,17 @@ border-color:black;
 border-width: 12px;
 }
 
-a {text-decoration:none;
-display:inline-block;
-padding:32px;
-color:white;}
+a {
+  display: inline-block;
+  text-decoration:none;
+  padding:28px;
+  background-color: black;
+  color: white;
+  margin-left: 100px;
+  margin-right:auto;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 16px;
+  float:left;}
 
 
 .fa {color:black;
