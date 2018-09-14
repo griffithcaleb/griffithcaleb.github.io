@@ -65,7 +65,12 @@ float:right;
   padding: 5em 0;
   height: 90vh;
 }
+
+footer{background-color: black;
+  text-align: center;
+}
 .fa {
+  padding: 25px;
   font-size:2em;
   color:#333;
 }
