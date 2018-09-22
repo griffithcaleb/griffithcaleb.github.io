@@ -70,3 +70,19 @@ footer{background-color: black;
   font-size:2em;
   color:#333;
 }
+
+@media (max-width: 562px) {
+  h1 { font-size:2em;
+    border: none;
+    background: transparent;
+  }
+
+h2 {
+  display:none;
+  }
+  nav {display:inline-block;
+    font-size:.5em;}
+
+  p{ font-size:16px; }
+  .fa{
+font-size:1em;}}
