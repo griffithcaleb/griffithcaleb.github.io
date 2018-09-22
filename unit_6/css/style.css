@@ -32,30 +32,22 @@ nav a {
 }
 nav a:hover{background-color:purple;}
 
-img {
-  border: 12px solid black;
-  width:400px;
-}
-.cta{background:url(../images/play.jpg);
+img {width:100%;
+  display:block;
+  }
+.cta{
 text-align: center;
 font-size:2em;
 color:white;
-border:1px white solid;
-padding: 20px;
-width:40%;
-height:74%;
-float:left;}
+width:48%;
+position: relative;
+float:left;
+margin:1%;}
 
-.cta2{background:url(../images/record.jpg);
-text-align:center;
-color:white;
-font-size:2em;
-border:1px white solid;
-padding: 20px;
-width:40%;
-height: 74%;
-float:right;
-}
+.cta p{ position: absolute; 
+top:50%;
+left:50%;
+transform: (-50%,-50%)}
 
 
 #intro {
