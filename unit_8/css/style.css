@@ -26,14 +26,16 @@ h2 {font-style: italic;
 nav {
   background-color: black;
   border: solid .33em;
+  opacity: .8;
 }
 nav a {
   display:inline-block;
   text-decoration:none;
   padding:1.5em;
   color: white;
+
 }
-nav a:hover{background-color:purple;}
+nav a:hover{background-color:grey;}
 
 img {width:100%;
   display:block
@@ -80,9 +82,13 @@ footer{background-color: black;
 h2 {
   display:none;
   }
-  nav a {display:block;
+  nav {
     font-size:.5em;
-    width:50%;}
+    width:50%;
+  }
+  nav a{ 
+  display:block; 
+}
 
   p{ font-size:16px; }
   .fa{
