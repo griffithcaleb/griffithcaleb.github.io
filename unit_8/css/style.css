@@ -13,6 +13,7 @@ h1{
   background-color: black;
   border: solid  .15em;
   border-bottom: none;
+ 
 
 
 }
@@ -21,6 +22,7 @@ h2 {font-style: italic;
   width:60%;
   background-color: black;
   border: solid .33em;
+ 
 
 }
 nav {
