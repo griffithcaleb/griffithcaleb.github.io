@@ -15,7 +15,7 @@
 
 
 
-let userInput = 'bob'
+let userInput = 'jazz'
 let time =0
 $(() => {
   $.ajax(

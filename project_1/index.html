@@ -26,6 +26,7 @@
         <div class="nameEvent">
           <form id="nameEventForm" action="index.html" method="post">
             <input type="text" id='nameEventInput' placeholder="name your Event">
+             <button type="button" id= 'setdatebutton'>set</button>
           </form>
         </div>
         <div class="calendar">
@@ -36,16 +37,17 @@
          <button type="button" id= 'setdatebutton'>set</button>
           </div>
           <div class="whatTime">
-            <p>set start time for your event</p>
+            <p>set start and end time for your event</p>
             <input type="time" id="startTime" name="appt"
              min="9:00" max="18:00" required>
              <input type="time" id="endTime" name="appt"
               min="9:00" max="18:00" required>
-             <input type="text" id = 'durationofevent' placeholder="duration of event">
+             <button type="button" id= 'setdatebutton'>set</button>
           </div>
           <div class="slider">
               <p>set an intesity level for your music during your event</p>
-              <input id="intensitySelector" type="range" min="1" max="10" value="1" >
+              <input id="intensitySelector" type="range" min="1" max="10" value="" >
+              <button type="button" id= 'setdatebutton'>set</button>
               <div class="showRanges">
                 <p>filler for info about ranges </p>
               </div>
