@@ -1,6 +1,8 @@
 *{
   border: 1px solid red;
 }
+
+/* //basic page layout */
 .header{
   width:100%
 }
@@ -21,4 +23,50 @@
 .activePlayListContianer{
   width: 49%;
   display: inline-block;
+}
+.dailyEventsToBeAddedContainer{
+  width: 49%;
+  display: inline-block;
+  float: right;
+}
+.nameEvent{
+  width: 50%;
+  display: block;
+}
+.calendar{
+  width: 50%;
+  display: inline-block;
+}
+.whatTime{
+  width: 50%;
+  display: inline-block;
+}
+.slider{
+  width: 50%;
+  display: inline-block;
+}
+.donebuttons{
+  width: 50%;
+  display: inline-block;
+}
+.autoplay{
+  text-align: center;
+  width: 50%;
+  display: inline-block;
+
+}
+#autoplay{
+  margin:0 auto;
+}
+#addEventToDay{
+  display:block;
+  margin: 20px auto;
+  margin-bottom: 20px;
+
+}
+
+#submitPlayList{
+  display: block;
+  font-size: 36px;
+  margin: 0 auto
 }

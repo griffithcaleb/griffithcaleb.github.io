@@ -19,6 +19,15 @@
           </div>
       </div>
       <div class="createNewPlayListContainer">
+        <div class="dailyEventsToBeAddedContainer">
+            <p>this is filler for the playlists that will be here once i click add event to day button
+            needs to be moved over to right</p>
+        </div>
+        <div class="nameEvent">
+          <form id="nameEventForm" action="index.html" method="post">
+            <input type="text" id='nameEventInput' placeholder="name your Event">
+          </form>
+        </div>
         <div class="calendar">
           <p>set a date for your event</p>
           <input type="date" id="day" name="trip-start"
@@ -26,25 +35,20 @@
          min="2019-01-01" max="2025-12-31">
          <button type="button" id= 'setdatebutton'>set</button>
           </div>
-          <div class="whatTime?">
+          <div class="whatTime">
             <p>set start time for your event</p>
             <input type="time" id="startTime" name="appt"
              min="9:00" max="18:00" required>
-             <input type="text" id = 'durationofeven' placeholder="duration of event">
-          </div>
-          <div class="nameEvent">
-            <form id="nameEventForm" action="index.html" method="post">
-              <input type="text" id='nameEventInput' placeholder="name your Event">
-            </form>
+             <input type="text" id = 'durationofevent' placeholder="duration of event">
           </div>
           <div class="slider">
               <p>set an intesity level for your music during your event</p>
-              <input type="range" min="1" max="10" value="" id="intensitySelector">
+              <input id="intensitySelector" type="range" min="1" max="10" value="" >
               <div class="showRanges">
-
+                <p>filler for info about ranges </p>
               </div>
           </div>
-          <div>
+          <div class= 'autoplay'>
             <input type="checkbox" id="autoplay" name="autoplay"checked>
             <label for="autoplay">autoplay</label>
           </div>

@@ -15,7 +15,7 @@
 
 
 
-let userInput = ''
+let userInput = 'bob'
 let time =0
 $(() => {
   $.ajax(
@@ -45,11 +45,18 @@ $(() => {
       console.log('bad request');
     }
   )
-$('#submitPlayList').on('click',() => {
+$('#addEventToDay').on('click',() => {
 
   console.log($('#day').val());
   console.log($('#endTime').val())
+  console.log($('#intensitySelector').val());
 
+
+
+})
+//slider logic // add blurb about intensity levels during mouseover
+$('#intensitySelector').on('mouseover',() => {
+  console.log('yo');
 })
 
 
