@@ -1,3 +1,10 @@
+//global variables
+let randomGenreNumber = Math.floor(Math.random() * Math.floor(6))
+let randomSongNumber =  Math.floor(Math.random() * Math.floor(6))
+let userInput = ''
+let duration;
+let timeofPlayList;
+
 //arrays of music genres for random searching to
  // populate playlist, each one associated with a level of musical intensity
 
@@ -13,39 +20,9 @@
  const level10 = ['EDM','dubstep','heavymetal','metal']
 
 
-
-
-let userInput = 'jazz'
-let time =0
 $(() => {
-  $.ajax(
-    {
-    url: 'https://itunes.apple.com/search?term='+userInput+'&meida=music&entity=song&limit=250'
-    }
-  ).then(
-    (data) => {
-      let test = JSON.parse(data)
-      console.log(test);
-      let songLocation = test.results[1].trackViewUrl
-      const link = $('<a>',{href:songLocation})
-      const trackInfo = test.results[1].trackName
-      const artist = test.results[1].artistName
-      const imageTest = $("<img>").attr('src',test.results[1].artworkUrl100)
-      $('body').append(link)
-      imageTest.appendTo(link)
-      $('body').append(trackInfo)
-      $('body').append(artist)
 
-      let time=test.results[1].trackTimeMillis
-      console.log(time);
-
-
-    },
-    ()=>{
-      console.log('bad request');
-    }
-  )
-$('#addEventToDay').on('click',() => {
+$('#setTimebutton').on('click',() => {
 
   // console.log($('#day').val());
   // console.log($('#endTime').val())
@@ -76,25 +53,65 @@ $('#addEventToDay').on('click',() => {
     return endTimeInMiliseconds
   }
 
-  const duration = endTimeInMins() - startTimeInMins()
-  // console.log(duration);
+  let duration = endTimeInMins() - startTimeInMins()
+  console.log(duration);
 
-// changing userInput based on slider positon
-if ($('#intensitySelector').val()==="1"){
-  userInput = level1[0]
-  console.log(userInput);
-}
+  // console.log(duration);
 
 
 })
 //slider logic // add blurb about intensity levels during mouseover
-
-
 $('#intensitySelector').on('mouseenter mouseleave',() => {
 
+})
+// changing userInput based on slider positon
 
+$('#setMusic').on('click',() => {
 
+  if ($('#intensitySelector').val()==="1"){
+    userInput = level1[randomSongNumber]
+    console.log(userInput);
+  } else if ($('#intensitySelector').val()==='2'){
+    userInput = level2[randomSongNumber]
+  }
+  //api call
 
 })
+//final button for each days playlist
+// need to add functionaliy to add songs = to length of evetn
+$('#addEventToDay').on('click',() => {
+  $.ajax(
+    {
+    url: 'https://itunes.apple.com/search?term='+userInput+'&meida=music&entity=song&limit=250'
+    }
+  ).then(
+    (data) => {
+      let test = JSON.parse(data)
+      console.log(test);
+      let songLocation = test.results[randomGenreNumber].trackViewUrl
+      const link = $('<a>',{href:songLocation})
+      const trackInfo = test.results[randomGenreNumber].trackName
+      const artist = test.results[randomGenreNumber].artistName
+      const imageTest = $("<img>").attr('src',test.results[randomGenreNumber].artworkUrl100)
+      $('body').append(link)
+      imageTest.appendTo(link)
+      $('body').append(trackInfo)
+      $('body').append(artist)
+
+      let time=test.results[randomNum].trackTimeMillis
+      console.log(time);
+    },
+    ()=>{
+      console.log('bad request');
+    }
+  )
+
+})
+
+
+
+
+
+
 
 })
