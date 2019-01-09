@@ -47,17 +47,54 @@ $(() => {
   )
 $('#addEventToDay').on('click',() => {
 
-  console.log($('#day').val());
-  console.log($('#endTime').val())
-  console.log($('#intensitySelector').val());
+  // console.log($('#day').val());
+  // console.log($('#endTime').val())
+  // console.log($('#intensitySelector').val());
 
+
+  //time logic
+  const startTime = $('#startTime').val().replace(':','');
+  const endTime = $('#endTime').val().replace(':','');
+  const startTimeArray = startTime.split('');
+  const endTimeArray = endTime.split('');
+
+  const startTimeInMins = () => {
+    let hours1 = Number(startTimeArray[0]*60);
+    let hours2 = Number(startTimeArray[1]*60);
+    let mins1 = Number(startTimeArray[2])
+    let mins2 = Number(startTimeArray[3])
+    let startTimeInMiliseconds = (hours1+hours2+mins1+mins2)*6000
+    return startTimeInMiliseconds;
+
+  }
+  const endTimeInMins = () => {
+    let hours1 = Number(endTimeArray[0]*60);
+    let hours2 = Number(endTimeArray[1]*60);
+    let mins1 = Number(endTimeArray[2])
+    let mins2 = Number(endTimeArray[3])
+    let endTimeInMiliseconds = (hours1+hours2+mins1+mins2)*6000
+    return endTimeInMiliseconds
+  }
+
+  const duration = endTimeInMins() - startTimeInMins()
+  // console.log(duration);
+
+// changing userInput based on slider positon
+if ($('#intensitySelector').val()==="1"){
+  userInput = level1[0]
+  console.log(userInput);
+}
 
 
 })
 //slider logic // add blurb about intensity levels during mouseover
-$('#intensitySelector').on('mouseover',() => {
-  console.log('yo');
-})
 
+
+$('#intensitySelector').on('mouseenter mouseleave',() => {
+
+
+
+
+})
 
 })

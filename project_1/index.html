@@ -39,11 +39,13 @@
             <p>set start time for your event</p>
             <input type="time" id="startTime" name="appt"
              min="9:00" max="18:00" required>
+             <input type="time" id="endTime" name="appt"
+              min="9:00" max="18:00" required>
              <input type="text" id = 'durationofevent' placeholder="duration of event">
           </div>
           <div class="slider">
               <p>set an intesity level for your music during your event</p>
-              <input id="intensitySelector" type="range" min="1" max="10" value="" >
+              <input id="intensitySelector" type="range" min="1" max="10" value="1" >
               <div class="showRanges">
                 <p>filler for info about ranges </p>
               </div>
@@ -64,6 +66,5 @@
       </div>
     </div>
     </div>
-
   </body>
 </html>
