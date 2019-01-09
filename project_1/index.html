@@ -20,25 +20,25 @@
       </div>
       <div class="createNewPlayListContainer">
         <div class="calendar">
-          <input type="date" id="start" name="trip-start"
-         value="2018-07-22"
-         min="2018-01-01" max="2018-12-31">
+          <p>set a date for your event</p>
+          <input type="date" id="day" name="trip-start"
+         value=""
+         min="2019-01-01" max="2025-12-31">
+         <button type="button" id= 'setdatebutton'>set</button>
           </div>
           <div class="whatTime?">
+            <p>set start time for your event</p>
             <input type="time" id="startTime" name="appt"
              min="9:00" max="18:00" required>
-             <input type="time" id="startTime" name="appt"
-              min="9:00" max="18:00" required>
-             <div class="setTime">
-               <button type="button" name="button">set time?</button>
-             </div>
+             <input type="text" id = 'durationofeven' placeholder="duration of event">
           </div>
           <div class="nameEvent">
             <form id="nameEventForm" action="index.html" method="post">
-              <input type="text" id='nameEventInput'>
+              <input type="text" id='nameEventInput' placeholder="name your Event">
             </form>
           </div>
           <div class="slider">
+              <p>set an intesity level for your music during your event</p>
               <input type="range" min="1" max="10" value="" id="intensitySelector">
               <div class="showRanges">
 
@@ -48,8 +48,10 @@
             <input type="checkbox" id="autoplay" name="autoplay"checked>
             <label for="autoplay">autoplay</label>
           </div>
-          <div class="donebutton">
-            <button type="button" name="button">Done</button>
+
+          <div class="donebuttons">
+            <button id = 'addEventToDay' type="button" name="button">AddEventToDay</button>
+            <button id = 'submitPlayList'type="button" name="button">Done With Day</button>
           </div>
       </div>
     <div class="activePlayListContianer">
