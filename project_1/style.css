@@ -31,28 +31,28 @@
 }
 .nameEvent{
   width: 50%;
-  display: block;
+  display: none;
 }
 .calendar{
   width: 50%;
-  display: inline-block;
+  display: none;
 }
 .whatTime{
   width: 50%;
-  display: inline-block;
+  display: none;
 }
 .slider{
   width: 50%;
-  display: inline-block;
+  display: none;
 }
 .donebuttons{
   width: 50%;
-  display: inline-block;
+  display: none;
 }
 .autoplay{
   text-align: center;
   width: 50%;
-  display: inline-block;
+  display: none;
 
 }
 #autoplay{
@@ -89,4 +89,7 @@
   display: inline-block;
   float:right;
   text-align: center;
+}
+#addAnotherEvent{
+  display:none;
 }

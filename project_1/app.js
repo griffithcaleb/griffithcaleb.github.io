@@ -20,25 +20,35 @@ const level9 = ['hiphop', 'eastcoasthiphop', 'westcoasthiphop', 'hardcore', 'tra
 const level10 = ['EDM', 'dubstep', 'heavymetal', 'metal', 'EDM']
 
 $(() => {
+//begin button,//begins carousel of divs of user input
+$('#addEventButton').on('click',() => {
+  $('#addEventButton').hide();
+   $('.calendar').show();
 
-//namebutton
-
-$('#setNameButton').on('click',() => {
-  const $name = $('#nameEventInput').val();
-  const $nameInfo = $('<h4>'+ $name + '</h4>')
-  $nameInfo.appendTo($('#playlistInWaitingData'))
 })
+
 //calendar info
 $("#setDateButton").on('click',() => {
+  $(".calendar").hide();
+  $('.nameEvent').show();
   const $date = $('#day').val()
   const $dateInfo = $('<h4>'+ $date + '</h4>')
   $('#playlistInWaitingData').append($dateInfo)
 })
-
+//namebutton
+$('#setNameButton').on('click',() => {
+  $('.nameEvent').hide();
+  $(".whatTime").show()
+  let $name = $('#nameEventInput').val();
+  const $nameInfo = $('<h4>'+ $name + '</h4>')
+  $nameInfo.appendTo($('#playlistInWaitingData'))
+})
 
 
 //time logic
   $('#setTimebutton').on('click', () => {
+    $('.whatTime').hide();
+    $('.slider').show();
     const startData = $('#startTime').val();
     const endData = $('#endTime').val();
     const timeInfo = $('<h4>'+startData+ '</h4>'+'-'+'<h4>'+endData+ '</h4>')
@@ -81,6 +91,10 @@ $("#setDateButton").on('click',() => {
   // changing userInput based on slider positon
   //
   $('#setMusic').on('click', () => {
+    $('.slider').hide();
+    $('.donebuttons').show();
+    $('#submitPlayList').hide();
+    $('#addEventToDay').text('confirm your event')
     //add level to playlist in waiting
     const $musicLevel = $('#intensitySelector').val()
     const $musicData = $('<h4>'+'Music Intensity Level: '+'</h4>'  + '<h4>'+ $musicLevel + '</h4>')
@@ -113,6 +127,9 @@ $("#setDateButton").on('click',() => {
   //final button for each days playlist
   // need to add functionaliy to add songs = to length of evetn
   $('#addEventToDay').on('click', () => {
+  $('#addEventToDay').hide();
+  $('#submitPlayList').show();
+  $('#addAnotherEvent').show();
 
     //api call
     $.ajax({
@@ -166,6 +183,13 @@ $("#setDateButton").on('click',() => {
   $playlist.append(cloneOfData)
  })
 
-
+//add another button
+$('#addAnotherEvent').on('click',() => {
+  //reseting values
+  $('#nameEventInput').val('');
+  $('#startTime').val('');
+  $('#endTime').val('');
+  $('.nameEvent').show();
+})
 
 })
