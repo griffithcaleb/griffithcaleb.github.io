@@ -4,7 +4,7 @@ let randomSongNumber = Math.floor(Math.random() * Math.floor(200))
 let userInput = ''
 let timeOfPlayList = 0;
 let duration = 0;
-
+let newDay = false;
 //arrays of music genres for random searching to
 // populate playlist, each one associated with a level of musical intensity
 
@@ -130,10 +130,27 @@ $('#setNameButton').on('click',() => {
 
   //final button for each days playlist
   $('#addEventToDay').on('click', () => {
-  const $playlistDropDownButton = $('<button>').addClass('dropDown')
-  const $playlistDiv = $('<div>').addClass('playlist')
-  const $dropDownContent = $('<div>').addClass('dropDownContent')
-  $playlistDropDownButton.text($('#day').val())
+
+  const $playlistDiv = $('<div>').addClass('playlist'+$('#day').val())
+  if (newDay === false){
+  $('#activePlayListContianer').append($playlistDiv);
+  }else {$('.playlist'+$('#day').val()).append($playlistDiv)}
+
+  const $dayDropDownButton = $('<button>').addClass('dayDropDownButton');
+  $playlistDiv.append($dayDropDownButton);
+  const $dayDropDownContent = $('<div>').addClass('dayDropDownContent');
+  $playlistDiv.append($dayDropDownContent);
+  const $playlistDropDownButton = $('<button>').addClass('dropDown');
+  $dayDropDownContent.append($playlistDropDownButton);
+  const $nameOfEvent = $('#nameEventInput').val();
+  $dayDropDownContent.append($nameOfEvent);
+  const $dropDownContent = $('<div>').addClass('dropDownContent');
+  $dayDropDownContent.append($dropDownContent);
+  $playlistDropDownButton.text($('#startTime').val());
+  if (newDay ===false) {
+    $dayDropDownButton.text($('#day').val());
+  }else {$dayDropDownButton.text('')}
+
 
 
 
@@ -141,13 +158,18 @@ $('#setNameButton').on('click',() => {
   $('#submitPlayList').show();
   $('#addAnotherEvent').show();
   $('#deleteAndStartOverButton').hide();
-// creating a div for the confirmed playlist
- $('#activePlayListContianer').append($playlistDiv)
-  $($playlistDiv).append($playlistDropDownButton)
-  $($playlistDiv).append($dropDownContent)
+// creating a div for the confirmed playlist)
 
-  //dropDown
+ $playlistDiv.append($dayDropDownButton)
+ $playlistDiv.append($dayDropDownContent)
+  $dayDropDownContent.append($playlistDropDownButton)
+  $dayDropDownContent.append($dropDownContent)
+
+  //dropDowns
     $playlistDropDownButton.on('click',(event) => {
+      $(event.target).siblings().toggleClass('hide')
+    })
+    $dayDropDownButton.on('click',(event) => {
       $(event.target).siblings().toggleClass('hide')
     })
 
@@ -168,6 +190,8 @@ $('#setNameButton').on('click',() => {
 
             let $image = $('<img>').addClass('albumImage').attr('src',parsedData.results[i].artworkUrl100)
             $dropDownContent.append($image)
+            let trackTitle = parsedData.results[i].trackName
+            $dropDownContent.append(trackTitle)
           } else {
             break
           }
@@ -210,6 +234,7 @@ $('#setNameButton').on('click',() => {
 //add another button
 $('#addAnotherEvent').on('click',() => {
   //reseting values
+  newDay = true;
   $('#addAnotherEvent').hide()
   $('#nameEventInput').val('');
   $('#startTime').val('');
