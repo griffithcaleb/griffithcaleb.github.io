@@ -130,7 +130,7 @@ $('#setNameButton').on('click',() => {
 
   //final button for each days playlist
   $('#addEventToDay').on('click', () => {
-   const $playlistDropDownButton = $('<button>').addClass('dropDown')
+  const $playlistDropDownButton = $('<button>').addClass('dropDown')
   const $playlistDiv = $('<div>').addClass('playlist')
   const $dropDownContent = $('<div>').addClass('dropDownContent')
   $playlistDropDownButton.text($('#day').val())
@@ -172,7 +172,9 @@ $('#setNameButton').on('click',() => {
             break
           }
         }
-
+        //reseting the values of duration and time of playlist
+        duration = 0;
+        timeOfPlayList = 0;
 
 
         // let songLocation = test.results[randomGenreNumber].trackViewUrl
