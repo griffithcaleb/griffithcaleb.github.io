@@ -83,6 +83,7 @@
   float:right;
   display: flex;
   justify-content: center;
+
 }
 .activePlayLists{
   width: 49%;

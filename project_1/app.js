@@ -149,9 +149,8 @@ $('#setNameButton').on('click',() => {
           let time = parsedData.results[i].trackTimeMillis
           timeOfPlayList += time;
           if (timeOfPlayList < duration) {
-
-            $playlistDiv.append(parsedData.results[i].trackName)
-
+            let $image = $('<img>').addClass('albumImage').attr('src',parsedData.results[i].artworkUrl100)
+            $playlistDiv.append($image)
           } else {
             break
           }
