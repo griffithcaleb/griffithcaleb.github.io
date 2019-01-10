@@ -1,9 +1,9 @@
 //global variables
 let randomGenreNumber = Math.floor(Math.random() * Math.floor(6))
 let randomSongNumber =  Math.floor(Math.random() * Math.floor(6))
-let userInput = 'folk'
-let duration;
-let timeofPlayList;
+let userInput = 'pop'
+let timeOfPlayList = 0;
+let duration = 0;
 
 //arrays of music genres for random searching to
  // populate playlist, each one associated with a level of musical intensity
@@ -27,7 +27,6 @@ $('#setTimebutton').on('click',() => {
   // console.log($('#day').val());
   // console.log($('#endTime').val())
   // console.log($('#intensitySelector').val());
-
 
   //time logic
   const startTime = $('#startTime').val().replace(':','');
@@ -53,12 +52,10 @@ const endTimeInMins = () => {
   const endTimeInMiliseconds = (endHours1+endHours2+endMinutes)*60000
   return endTimeInMiliseconds;
 }
-  let duration = endTimeInMins() - startTimeInMins()
+  duration = endTimeInMins() - startTimeInMins()
   console.log(duration);
 
   // console.log(duration);
-
-
 })
 //slider logic // add blurb about intensity levels during mouseover
 $('#intensitySelector').on('mouseenter mouseleave',() => {
@@ -82,24 +79,36 @@ $('#addEventToDay').on('click',() => {
   //api call
   $.ajax(
     {
-    url: 'https://itunes.apple.com/search?term='+userInput+'&meida=music&entity=song&limit=2'
+    url: 'https://itunes.apple.com/search?term='+userInput+'&meida=music&entity=song&limit=200'
     }
   ).then(
     (data) => {
-      let test = JSON.parse(data)
-      console.log(test);
-      let songLocation = test.results[randomGenreNumber].trackViewUrl
-      const link = $('<a>',{href:songLocation})
-      const trackInfo = test.results[randomGenreNumber].trackName
-      const artist = test.results[randomGenreNumber].artistName
-      const imageTest = $("<img>").attr('src',test.results[randomGenreNumber].artworkUrl100)
-      $('body').append(link)
-      imageTest.appendTo(link)
-      $('body').append(trackInfo)
-      $('body').append(artist)
+      const parsedData = JSON.parse(data)
 
-      let time=test.results[randomSongNumber].trackTimeMillis
-      console.log(time);
+
+// for loop to pull music based on song on event time
+     for (var i = 0; i < 200; i++) {
+      let time=parsedData.results[i].trackTimeMillis
+      timeOfPlayList += time;
+        if (timeOfPlayList < duration){
+          console.log('yo');
+        }else {return}
+    }
+
+
+
+      // let songLocation = test.results[randomGenreNumber].trackViewUrl
+      // const link = $('<a>',{href:songLocation})
+      // const trackInfo = test.results[randomGenreNumber].trackName
+      // const artist = test.results[randomGenreNumber].artistName
+      // const imageTest = $("<img>").attr('src',test.results[randomGenreNumber].artworkUrl100)
+      // $('body').append(link)
+      // imageTest.appendTo(link)
+      // $('body').append(trackInfo)
+      // $('body').append(artist)
+      //
+      //
+      // console.log(time);
     },
     ()=>{
       console.log('bad request');
@@ -107,13 +116,5 @@ $('#addEventToDay').on('click',() => {
   )
 
 })
-
-
-
-
-
-
-
-
 
 })
