@@ -86,13 +86,16 @@ $('#addEventToDay').on('click',() => {
       const parsedData = JSON.parse(data)
 
 
-// for loop to pull music based on song on event time
+// this works now need to populate the containers with the data
      for (var i = 0; i < 200; i++) {
       let time=parsedData.results[i].trackTimeMillis
       timeOfPlayList += time;
         if (timeOfPlayList < duration){
-          console.log('yo');
-        }else {return}
+
+
+
+          console.log(parsedData.results[i].trackName);
+        }else {break}
     }
 
 
