@@ -24,9 +24,7 @@ $(() => {
 $('#addEventButton').on('click',() => {
   $('#addEventButton').hide();
    $('.calendar').show();
-
 })
-
 //calendar info
 $("#setDateButton").on('click',() => {
   $(".calendar").hide();
@@ -43,8 +41,6 @@ $('#setNameButton').on('click',() => {
   const $nameInfo = $('<h4>'+ $name + '</h4>')
   $nameInfo.appendTo($('#playlistInWaitingData'))
 })
-
-
 //time logic
   $('#setTimebutton').on('click', () => {
     $('.whatTime').hide();
@@ -52,7 +48,7 @@ $('#setNameButton').on('click',() => {
     const startData = $('#startTime').val();
     const endData = $('#endTime').val();
     const timeInfo = $('<h4>'+startData+' till '+ endData+'</h4>')
-  $('#playlistInWaitingData').append(timeInfo)
+ $('#playlistInWaitingData').append(timeInfo)
 
 
 //converting data from about into miliseconds to compare to track length
@@ -90,7 +86,34 @@ $('#setNameButton').on('click',() => {
   })
   // changing userInput based on slider positon
   //
-  $('#setMusic').on('click', () => {
+ const converUserInput = (num) => {
+   let userInput = ''
+   if (num === "1") {
+     userInput = level1[randomGenreNumber]
+     console.log(userInput);
+   } else if (num === '2') {
+     userInput = level2[randomGenreNumber]
+   } else if (num === '3') {
+     userInput = level3[randomGenreNumber]
+   } else if (num === '4') {
+     userInput = level4[randomGenreNumber]
+   } else if (num === '5') {
+     userInput = level5[randomGenreNumber]
+   } else if (num === '6') {
+     userInput = level6[randomGenreNumber]
+   } else if (num === '7') {
+     userInput = level7[randomGenreNumber]
+   } else if (num === '8') {
+     userInput = level8[randomGenreNumber]
+   } else if (num === '9') {
+     userInput = level9[randomGenreNumber]
+   } else if (num === '10') {
+     userInput = level10[randomGenreNumber]
+   }
+   return userInput
+}
+
+$('#setMusic').on('click', () => {
     $('.slider').hide();
     $('.donebuttons').show();
     $('#submitPlayList').hide();
@@ -100,29 +123,8 @@ $('#setNameButton').on('click',() => {
     const $musicData = $('<h4>'+'Music Intensity Level: '+'</h4>'  + '<h4>'+ $musicLevel + '</h4>')
     $('#playlistInWaitingData').append($musicData)
 
+  userInput = converUserInput($('#intensitySelector').val());
 
-    if ($('#intensitySelector').val() === "1") {
-      userInput = level1[randomGenreNumber]
-      console.log(userInput);
-    } else if ($('#intensitySelector').val() === '2') {
-      userInput = level2[randomGenreNumber]
-    } else if ($('#intensitySelector').val() === '3') {
-      userInput = level3[randomGenreNumber]
-    } else if ($('#intensitySelector').val() === '4') {
-      userInput = level4[randomGenreNumber]
-    } else if ($('#intensitySelector').val() === '5') {
-      userInput = level5[randomGenreNumber]
-    } else if ($('#intensitySelector').val() === '6') {
-      userInput = level6[randomGenreNumber]
-    } else if ($('#intensitySelector').val() === '7') {
-      userInput = level7[randomGenreNumber]
-    } else if ($('#intensitySelector').val() === '8') {
-      userInput = level8[randomGenreNumber]
-    } else if ($('#intensitySelector').val() === '9') {
-      userInput = level9[randomGenreNumber]
-    } else if ($('#intensitySelector').val() === '10') {
-      userInput = level10[randomGenreNumber]
-    } else{return}
   })
 //declaring varibales outside click event
 
@@ -158,12 +160,9 @@ $('#setNameButton').on('click',() => {
   $('#submitPlayList').show();
   $('#addAnotherEvent').show();
   $('#deleteAndStartOverButton').hide();
-// creating a div for the confirmed playlist)
+  $playlistDiv.append($dayDropDownButton,$dayDropDownContent)
+  dayDropDownContent.append($playlistDropDownButton,$dropDownContent)
 
- $playlistDiv.append($dayDropDownButton)
- $playlistDiv.append($dayDropDownContent)
-  $dayDropDownContent.append($playlistDropDownButton)
-  $dayDropDownContent.append($dropDownContent)
 
   //dropDowns
     $playlistDropDownButton.on('click',(event) => {
@@ -200,19 +199,6 @@ $('#setNameButton').on('click',() => {
         duration = 0;
         timeOfPlayList = 0;
 
-
-        // let songLocation = test.results[randomGenreNumber].trackViewUrl
-        // const link = $('<a>',{href:songLocation})
-        // const trackInfo = test.results[randomGenreNumber].trackName
-        // const artist = test.results[randomGenreNumber].artistName
-        // const imageTest = $("<img>").attr('src',test.results[randomGenreNumber].artworkUrl100)
-        // $('body').append(link)
-        // imageTest.appendTo(link)
-        // $('body').append(trackInfo)
-        // $('body').append(artist)
-        //
-        //
-        // console.log(time);
       },
       () => {
         console.log('bad request');
