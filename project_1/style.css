@@ -97,3 +97,9 @@
 #deleteAndStartOverButton{
   margin: 0 auto;
 }
+.albumImage{
+  display: block;
+}
+.hide{
+  display:none;
+}

@@ -12,7 +12,7 @@ const level1 = ['chants', 'raga', 'oceansounds', 'harp', 'birdsongs']
 const level2 = ['classical', 'ambientmusic', 'acoustic', 'folk', 'bluegrass']
 const level3 = ['traditionaljazz', 'ragtime', 'swingmusic', 'smoothjazz', "bigBand"]
 const level4 = ['blues', 'gospel', 'electricjazz', 'bebop', 'jazzfusion']
-const level5 = ['randb', 'regeaton', 'regea', 'disco', ]
+const level5 = ['randb', 'regeaton', 'regea', 'disco','ska' ]
 const level6 = ['funk', 'classicrock', 'rock', 'folkrock', 'singerSongwriter']
 const level7 = ['pop', 'poppunk', 'Dance-pop‎', 'house', '90spop']
 const level8 = ['dancemusic', 'chillwave', 'electro', 'drumandbass', 'triphop']
@@ -124,17 +124,33 @@ $('#setNameButton').on('click',() => {
       userInput = level10[randomGenreNumber]
     } else{return}
   })
-  //final button for each days playlist
+//declaring varibales outside click event
 
+
+
+  //final button for each days playlist
   $('#addEventToDay').on('click', () => {
+   const $playlistDropDownButton = $('<button>').addClass('dropDown')
+  const $playlistDiv = $('<div>').addClass('playlist')
+  const $dropDownContent = $('<div>').addClass('dropDownContent')
+  $playlistDropDownButton.text($('#day').val())
+
+
 
   $('#addEventToDay').hide();
   $('#submitPlayList').show();
   $('#addAnotherEvent').show();
   $('#deleteAndStartOverButton').hide();
 // creating a div for the confirmed playlist
-  const $playlistDiv = $('<div>').addClass('playlist')
-  $('#activePlayListContianer').append($playlistDiv)
+ $('#activePlayListContianer').append($playlistDiv)
+  $($playlistDiv).append($playlistDropDownButton)
+  $($playlistDiv).append($dropDownContent)
+
+  //dropDown
+    $playlistDropDownButton.on('click',(event) => {
+      $(event.target).siblings().toggleClass('hide')
+    })
+
 
     //api call
     $.ajax({
@@ -149,8 +165,9 @@ $('#setNameButton').on('click',() => {
           let time = parsedData.results[i].trackTimeMillis
           timeOfPlayList += time;
           if (timeOfPlayList < duration) {
+
             let $image = $('<img>').addClass('albumImage').attr('src',parsedData.results[i].artworkUrl100)
-            $playlistDiv.append($image)
+            $dropDownContent.append($image)
           } else {
             break
           }
@@ -176,7 +193,9 @@ $('#setNameButton').on('click',() => {
       }
     )
 
-  })
+})
+
+
 //add day to active playlists
  $('#submitPlayList').on('click',() => {
    const cloneOfData = $('#playlistInWaitingData').children().clone();
@@ -224,5 +243,6 @@ $('#deleteAndStartOverButton').on('click',() => {
   $('.donebuttons').hide();
 
 })
+
 
 })
