@@ -23,7 +23,7 @@
         <div id="eventPlayListsToBeAddedContainer">
             <div id="playlistInWaiting">
                <div id="playlistInWaitingData">
-
+                 <h4>Your events</h4>
                </div>
             </div>
         </div>
@@ -36,6 +36,7 @@
           <div class="nameEvent">
               <input type="text" id='nameEventInput' placeholder="name your Event">
                <button type="button" id= 'setNameButton'>set</button>
+               <button type="button" id="backToDateButton">back</button>
             </form>
           </div>
           <div class="whatTime">
@@ -45,11 +46,13 @@
              <input type="time" id="endTime" name="appt"
               min="9:00" max="18:00" required>
              <button type="button" id= 'setTimebutton'>set</button>
+             <button type="button" id="backToNameButton">back</button>
           </div>
           <div class="slider">
               <p>set an intesity level for your music during your event</p>
               <input id="intensitySelector" type="range" min="1" max="10" value="" >
               <button type="button" id= 'setMusic'>set</button>
+              <button type="button" id="backToTimeButton">back</button>
               <div class="showRanges">
                 <p>filler for info about ranges </p>
               </div>
@@ -60,8 +63,9 @@
           </div>
 
           <div class="donebuttons">
-            <button id = 'addEventToDay' type="button" name="button">AddEventToDay</button>
-            <button id = 'submitPlayList'type="button" name="button">Done With Day</button>
+            <button id = 'addEventToDay' type="button" >AddEventToDay</button>
+            <button id = 'submitPlayList'type="button" >Done With Day</button>
+            <button id= deleteAndStartOverButton >Delete and Start again</button>
           </div>
       </div>
       <div id="activePlayListContianer">

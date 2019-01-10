@@ -51,7 +51,7 @@ $('#setNameButton').on('click',() => {
     $('.slider').show();
     const startData = $('#startTime').val();
     const endData = $('#endTime').val();
-    const timeInfo = $('<h4>'+startData+ '</h4>'+'-'+'<h4>'+endData+ '</h4>')
+    const timeInfo = $('<h4>'+startData+' till '+ endData+'</h4>')
   $('#playlistInWaitingData').append(timeInfo)
 
 
@@ -130,6 +130,7 @@ $('#setNameButton').on('click',() => {
   $('#addEventToDay').hide();
   $('#submitPlayList').show();
   $('#addAnotherEvent').show();
+  $('#deleteAndStartOverButton').hide();
 
     //api call
     $.ajax({
@@ -190,6 +191,35 @@ $('#addAnotherEvent').on('click',() => {
   $('#startTime').val('');
   $('#endTime').val('');
   $('.nameEvent').show();
+})
+//back buttons
+
+$('#backToDateButton').on('click',() => {
+  $('.nameEvent').hide();
+  $('.calendar').show()
+  $('#playlistInWaitingData').children().eq(1).remove()
+})
+
+$("#backToNameButton").on('click',() => {
+   $('.whatTime').hide();
+   $('.nameEvent').show();
+   $('#playlistInWaitingData').children().eq(2).remove()
+})
+
+$('#backToTimeButton').on('click',() => {
+  $('.slider').hide();
+  $('.whatTime').show();
+  $('#playlistInWaitingData').children().eq(3).remove()
+})
+
+$('#deleteAndStartOverButton').on('click',() => {
+  $('#playlistInWaitingData').children().remove()
+  $('#nameEventInput').val('');
+  $('#startTime').val('');
+  $('#endTime').val('');
+  $('.calendar').show();
+  $('.donebuttons').hide();
+
 })
 
 })

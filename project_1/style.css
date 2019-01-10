@@ -93,3 +93,6 @@
 #addAnotherEvent{
   display:none;
 }
+#deleteAndStartOverButton{
+  margin: 0 auto;
+}
