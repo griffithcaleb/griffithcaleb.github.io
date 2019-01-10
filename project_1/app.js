@@ -1,7 +1,7 @@
 //global variables
 let randomGenreNumber = Math.floor(Math.random() * Math.floor(6))
 let randomSongNumber =  Math.floor(Math.random() * Math.floor(6))
-let userInput = ''
+let userInput = 'folk'
 let duration;
 let timeofPlayList;
 
@@ -36,23 +36,23 @@ $('#setTimebutton').on('click',() => {
   const endTimeArray = endTime.split('');
 
   const startTimeInMins = () => {
-    let hours1 = Number(startTimeArray[0]*60);
-    let hours2 = Number(startTimeArray[1]*60);
-    let mins1 = Number(startTimeArray[2])
-    let mins2 = Number(startTimeArray[3])
-    let startTimeInMiliseconds = (hours1+hours2+mins1+mins2)*6000
+    const hours1 = Number(startTimeArray[0]*60);
+    const hours2 = Number(startTimeArray[1]*60);
+    const minutesArray = startTimeArray.slice(2,4);
+    const minutesString = minutesArray.join('')
+    const minutes = Number(minutesString)
+    const startTimeInMiliseconds = (hours1+hours2+minutes)*60000
     return startTimeInMiliseconds;
-
-  }
-  const endTimeInMins = () => {
-    let hours1 = Number(endTimeArray[0]*60);
-    let hours2 = Number(endTimeArray[1]*60);
-    let mins1 = Number(endTimeArray[2])
-    let mins2 = Number(endTimeArray[3])
-    let endTimeInMiliseconds = (hours1+hours2+mins1+mins2)*6000
-    return endTimeInMiliseconds
-  }
-
+}
+const endTimeInMins = () => {
+  const endHours1 = Number(endTimeArray[0]*60);
+  const endHours2 = Number(endTimeArray[1]*60);
+  const endMinutesArray = endTimeArray.slice(2,4);
+  const endMinutesString = endMinutesArray.join('')
+  const endMinutes = Number(endMinutesString)
+  const endTimeInMiliseconds = (endHours1+endHours2+endMinutes)*60000
+  return endTimeInMiliseconds;
+}
   let duration = endTimeInMins() - startTimeInMins()
   console.log(duration);
 
@@ -65,7 +65,7 @@ $('#intensitySelector').on('mouseenter mouseleave',() => {
 
 })
 // changing userInput based on slider positon
-
+//
 $('#setMusic').on('click',() => {
 
   if ($('#intensitySelector').val()==="1"){
@@ -74,15 +74,15 @@ $('#setMusic').on('click',() => {
   } else if ($('#intensitySelector').val()==='2'){
     userInput = level2[randomSongNumber]
   }
-  //api call
 
 })
 //final button for each days playlist
 // need to add functionaliy to add songs = to length of evetn
 $('#addEventToDay').on('click',() => {
+  //api call
   $.ajax(
     {
-    url: 'https://itunes.apple.com/search?term='+userInput+'&meida=music&entity=song&limit=250'
+    url: 'https://itunes.apple.com/search?term='+userInput+'&meida=music&entity=song&limit=2'
     }
   ).then(
     (data) => {
@@ -98,7 +98,7 @@ $('#addEventToDay').on('click',() => {
       $('body').append(trackInfo)
       $('body').append(artist)
 
-      let time=test.results[randomNum].trackTimeMillis
+      let time=test.results[randomSongNumber].trackTimeMillis
       console.log(time);
     },
     ()=>{
@@ -107,6 +107,8 @@ $('#addEventToDay').on('click',() => {
   )
 
 })
+
+
 
 
 
