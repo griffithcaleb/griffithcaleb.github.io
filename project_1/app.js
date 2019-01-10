@@ -19,38 +19,55 @@ const level8 = ['dancemusic', 'chillwave', 'electro', 'drumandbass', 'triphop']
 const level9 = ['hiphop', 'eastcoasthiphop', 'westcoasthiphop', 'hardcore', 'trap']
 const level10 = ['EDM', 'dubstep', 'heavymetal', 'metal', 'EDM']
 
-
 $(() => {
 
+//namebutton
+
+$('#setNameButton').on('click',() => {
+  const $name = $('#nameEventInput').val();
+  const $nameInfo = $('<h4>'+ $name + '</h4>')
+  $nameInfo.appendTo($('#playlistInWaitingData'))
+})
+//calendar info
+$("#setDateButton").on('click',() => {
+  const $date = $('#day').val()
+  const $dateInfo = $('<h4>'+ $date + '</h4>')
+  $('#playlistInWaitingData').append($dateInfo)
+})
+
+
+
+//time logic
   $('#setTimebutton').on('click', () => {
+    const startData = $('#startTime').val();
+    const endData = $('#endTime').val();
+    const timeInfo = $('<h4>'+startData+ '</h4>'+'-'+'<h4>'+endData+ '</h4>')
+  $('#playlistInWaitingData').append(timeInfo)
 
-    // console.log($('#day').val());
-    // console.log($('#endTime').val())
-    // console.log($('#intensitySelector').val());
 
-    //time logic
+//converting data from about into miliseconds to compare to track length
     const startTime = $('#startTime').val().replace(':', '');
     const endTime = $('#endTime').val().replace(':', '');
     const startTimeArray = startTime.split('');
     const endTimeArray = endTime.split('');
 
     const startTimeInMins = () => {
-      const hours1 = Number(startTimeArray[0] * 60);
-      const hours2 = Number(startTimeArray[1] * 60);
-      const minutesArray = startTimeArray.slice(2, 4);
-      const minutesString = minutesArray.join('');
-      const minutes = Number(minutesString);
-      const startTimeInMiliseconds = (hours1 + hours2 + minutes) * 60000;
-      return startTimeInMiliseconds;
+    const hours1 = Number(startTimeArray[0] * 60);
+    const hours2 = Number(startTimeArray[1] * 60);
+    const minutesArray = startTimeArray.slice(2, 4);
+    const minutesString = minutesArray.join('');
+    const minutes = Number(minutesString);
+    const startTimeInMiliseconds = (hours1 + hours2 + minutes) * 60000;
+    return startTimeInMiliseconds;
     }
     const endTimeInMins = () => {
-      const endHours1 = Number(endTimeArray[0] * 60);
-      const endHours2 = Number(endTimeArray[1] * 60);
-      const endMinutesArray = endTimeArray.slice(2, 4);
-      const endMinutesString = endMinutesArray.join('');
-      const endMinutes = Number(endMinutesString);
-      const endTimeInMiliseconds = (endHours1 + endHours2 + endMinutes) * 60000;
-      return endTimeInMiliseconds;
+    const endHours1 = Number(endTimeArray[0] * 60);
+    const endHours2 = Number(endTimeArray[1] * 60);
+    const endMinutesArray = endTimeArray.slice(2, 4);
+    const endMinutesString = endMinutesArray.join('');
+    const endMinutes = Number(endMinutesString);
+    const endTimeInMiliseconds = (endHours1 + endHours2 + endMinutes) * 60000;
+    return endTimeInMiliseconds;
     }
     duration = endTimeInMins() - startTimeInMins()
     console.log(duration);
@@ -64,6 +81,11 @@ $(() => {
   // changing userInput based on slider positon
   //
   $('#setMusic').on('click', () => {
+    //add level to playlist in waiting
+    const $musicLevel = $('#intensitySelector').val()
+    const $musicData = $('<h4>'+'Music Intensity Level: '+'</h4>'  + '<h4>'+ $musicLevel + '</h4>')
+    $('#playlistInWaitingData').append($musicData)
+
 
     if ($('#intensitySelector').val() === "1") {
       userInput = level1[randomGenreNumber]
@@ -91,6 +113,7 @@ $(() => {
   //final button for each days playlist
   // need to add functionaliy to add songs = to length of evetn
   $('#addEventToDay').on('click', () => {
+
     //api call
     $.ajax({
       url: 'https://itunes.apple.com/search?term=' + userInput + '&meida=music&entity=song&limit=200'
@@ -134,5 +157,15 @@ $(() => {
     )
 
   })
+//add day to active playlists
+ $('#submitPlayList').on('click',() => {
+   const cloneOfData = $('#playlistInWaitingData').children().clone();
+  $('#playlistInWaitingData').children().remove()
+  const $playlist = $('<div>').addClass('activePlayLists')
+  $('#activePlayListContianer').append($playlist)
+  $playlist.append(cloneOfData)
+ })
+
+
 
 })

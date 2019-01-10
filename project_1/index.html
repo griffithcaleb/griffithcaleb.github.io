@@ -19,22 +19,23 @@
           </div>
       </div>
       <div class="createNewPlayListContainer">
-        <div class="dailyEventsToBeAddedContainer">
-            <p>this is filler for the playlists that will be here once i click add event to day button
-            needs to be moved over to right</p>
+        <div id="eventPlayListsToBeAddedContainer">
+            <div id="playlistInWaiting">
+               <div id="playlistInWaitingData">
+
+               </div>
+            </div>
         </div>
         <div class="nameEvent">
-          <form id="nameEventForm" action="index.html" method="post">
             <input type="text" id='nameEventInput' placeholder="name your Event">
-             <button type="button" id= 'setdatebutton'>set</button>
+             <button type="button" id= 'setNameButton'>set</button>
           </form>
         </div>
         <div class="calendar">
           <p>set a date for your event</p>
-          <input type="date" id="day" name="trip-start"
-         value=""
+          <input type="date" id="day" value=""
          min="2019-01-01" max="2025-12-31">
-         <button type="button" id= 'setdatebutton'>set</button>
+         <button type="button" id= 'setDateDutton'>set</button>
           </div>
           <div class="whatTime">
             <p>set start and end time for your event</p>
@@ -62,11 +63,10 @@
             <button id = 'submitPlayList'type="button" name="button">Done With Day</button>
           </div>
       </div>
-    <div class="activePlayListContianer">
-      <div class="">
+      <div id="activePlayListContianer">
 
       </div>
-    </div>
+
     </div>
   </body>
 </html>
