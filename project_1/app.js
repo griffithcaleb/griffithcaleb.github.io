@@ -94,7 +94,7 @@ $('#setNameButton').on('click',() => {
     $('.slider').hide();
     $('.donebuttons').show();
     $('#submitPlayList').hide();
-    $('#addEventToDay').text('confirm your event')
+    $('#addEventToDay').show().text('confirm your event')
     //add level to playlist in waiting
     const $musicLevel = $('#intensitySelector').val()
     const $musicData = $('<h4>'+'Music Intensity Level: '+'</h4>'  + '<h4>'+ $musicLevel + '</h4>')
@@ -125,12 +125,16 @@ $('#setNameButton').on('click',() => {
     } else{return}
   })
   //final button for each days playlist
-  // need to add functionaliy to add songs = to length of evetn
+
   $('#addEventToDay').on('click', () => {
+
   $('#addEventToDay').hide();
   $('#submitPlayList').show();
   $('#addAnotherEvent').show();
   $('#deleteAndStartOverButton').hide();
+// creating a div for the confirmed playlist
+  const $playlistDiv = $('<div>').addClass('playlist')
+  $('#activePlayListContianer').append($playlistDiv)
 
     //api call
     $.ajax({
@@ -138,7 +142,7 @@ $('#setNameButton').on('click',() => {
     }).then(
       (data) => {
         const parsedData = JSON.parse(data)
-
+        console.log(parsedData);
 
         // this works now need to populate the containers with the data
         for (var i = 0; i < 200; i++) {
@@ -146,9 +150,8 @@ $('#setNameButton').on('click',() => {
           timeOfPlayList += time;
           if (timeOfPlayList < duration) {
 
+            $playlistDiv.append(parsedData.results[i].trackName)
 
-
-            console.log(parsedData.results[i].artistName);
           } else {
             break
           }
@@ -187,6 +190,7 @@ $('#setNameButton').on('click',() => {
 //add another button
 $('#addAnotherEvent').on('click',() => {
   //reseting values
+  $('#addAnotherEvent').hide()
   $('#nameEventInput').val('');
   $('#startTime').val('');
   $('#endTime').val('');
