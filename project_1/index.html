@@ -1,77 +1,80 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js" charset="utf-8"></script>
-    <script src="app.js" charset="utf-8"></script>
-    <link rel="stylesheet" href="style.css">
-  </head>
-  <body>
-    <div class="wrapper">
-      <div class="header">
-        <div class="addAPlayListHeader">
-          <h3>some ttitle</h3>
-          <button id ='addEventButton'type="button">begin</button>
-          <button id = 'addAnotherEvent'type="button">Add another event to your day</button>
-         </div>
-         <div class="activePlayListsHeader">
-           <h3>Your Playlists</h3>
-          </div>
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" charset="utf-8"></script>
+  <script src="app.js" charset="utf-8"></script>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css?family=Jura:600" rel="stylesheet">
+</head>
+
+<body>
+  <div class="wrapper">
+    <div class="header">
+      <div class="addAPlayListHeader">
+        <h1>Curator</h1>
+        <h4>custom playlist generation</h4>
+        <button id='addEventButton' type="button">Customize a New Day</button>
+        <button id='addAnotherEvent' type="button">Add another event to your day</button>
       </div>
-      <div class="createNewPlayListContainer">
-        <div id="eventPlayListsToBeAddedContainer">
-            <div id="playlistInWaiting">
-               <div id="playlistInWaitingData">
-                 <h4>Your events</h4>
-               </div>
-            </div>
+      <div class="activePlayListsHeader">
+        <h3>Active Playlists</h3>
+      </div>
+    </div>
+    <div class="createNewPlayListContainer">
+      <div id="eventPlayListsToBeAddedContainer">
+        <div id="playlistInWaiting">
+          <div id="playlistInWaitingData">
+            <h4>Daily Events</h4>
+          </div>
         </div>
-        <div class="calendar">
-          <p>set a date for your event</p>
-          <input type="date" id="day" value=""
-         min="2019-01-01" max="2025-12-31">
-         <button type="button" id= 'setDateButton'>set</button>
-          </div>
-          <div class="nameEvent">
-              <input type="text" id='nameEventInput' placeholder="name your Event">
-               <button type="button" id= 'setNameButton'>set</button>
-               <button type="button" id="backToDateButton">back</button>
-            </form>
-          </div>
-          <div class="whatTime">
-            <p>set start and end time for your event</p>
-            <input type="time" id="startTime" name="appt"
-             min="9:00" max="18:00" required>
-             <input type="time" id="endTime" name="appt"
-              min="9:00" max="18:00" required>
-             <button type="button" id= 'setTimebutton'>set</button>
-             <button type="button" id="backToNameButton">back</button>
-          </div>
-          <div class="slider">
-              <p>set an intesity level for your music during your event</p>
-              <input id="intensitySelector" type="range" min="1" max="10" value="" >
-              <button type="button" id= 'setMusic'>set</button>
-              <button type="button" id="backToTimeButton">back</button>
-              <div class="showRanges">
-                <p>filler for info about ranges </p>
-              </div>
-          </div>
-          <div class= 'autoplay'>
-            <input type="checkbox" id="autoplay" name="autoplay"checked>
-            <label for="autoplay">autoplay</label>
-          </div>
-
-          <div class="donebuttons">
-            <button id = 'addEventToDay' type="button" >AddEventToDay</button>
-            <button id = 'submitPlayList'type="button" >Done With Day</button>
-            <button id= deleteAndStartOverButton >Delete and Start again</button>
-          </div>
       </div>
-      <div id="activePlayListContianer">
-
+      <div class="calendar">
+        <p>What day do you want to create playlists for?</p>
+        <input type="date" id="day" value="" min="2019-01-01" max="2025-12-31">
+        <button type="button" id='setDateButton'>set</button>
       </div>
+      <div class="nameEvent">
+        <p>Add an event to your day.</p>
+        <button type="button" id="backToDateButton">back</button>
+        <input type="text" id='nameEventInput' placeholder="name your Event">
+        <button type="button" id='setNameButton'>add</button>
+      </div>
+      <div class="whatTime">
+        <p>Set a start and end time for your event.</p>
+
+        <input type="time" id="startTime" name="appt" min="9:00" max="18:00" required>
+        <input type="time" id="endTime" name="appt" min="9:00" max="18:00" required>
+        <button type="button" id='setTimebutton'>set</button>
+        <button type="button" id="backToNameButton">back</button>
+      </div>
+      <div class="slider">
+        <button type="button" id="backToTimeButton">back</button>
+        <p>Set an intesity level for your music during this event.</p>
+        <input id="intensitySelector" type="range" min="1" max="10" value="">
+        <button type="button" id='setMusic'>set</button>
+      <div class="showRanges">
+          <p>filler for info about ranges </p>
+        </div>
+      </div>
+      <div class='autoplay'>
+        <input type="checkbox" id="autoplay" name="autoplay" checked>
+        <label for="autoplay">autoplay</label>
+      </div>
+
+      <div class="donebuttons">
+        <button id='addEventToDay' type="button">Add Event To Day</button>
+        <button id='submitPlayList' type="button">Done with day</button>
+        <button id=deleteAndStartOverButton>Delete this event and Start again</button>
+      </div>
+    </div>
+    <div id="activePlayListContianer">
 
     </div>
-  </body>
+
+  </div>
+</body>
+
 </html>

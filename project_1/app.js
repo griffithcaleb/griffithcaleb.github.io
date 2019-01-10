@@ -27,11 +27,9 @@ $('#addEventButton').on('click',() => {
 })
 //calendar info
 $("#setDateButton").on('click',() => {
+  $('#playlistInWaitingData').children().eq(0).text($('#day').val()).css('border-bottom','1px solid black')
   $(".calendar").hide();
   $('.nameEvent').show();
-  const $date = $('#day').val()
-  const $dateInfo = $('<h4>'+ $date + '</h4>')
-  $('#playlistInWaitingData').append($dateInfo)
 })
 //namebutton
 $('#setNameButton').on('click',() => {
@@ -51,7 +49,7 @@ $('#setNameButton').on('click',() => {
  $('#playlistInWaitingData').append(timeInfo)
 
 
-//converting data from about into miliseconds to compare to track length
+//converting data from about time input into miliseconds to compare to track length
     const startTime = $('#startTime').val().replace(':', '');
     const endTime = $('#endTime').val().replace(':', '');
     const startTimeArray = startTime.split('');
@@ -117,7 +115,7 @@ $('#setMusic').on('click', () => {
     $('.slider').hide();
     $('.donebuttons').show();
     $('#submitPlayList').hide();
-    $('#addEventToDay').show().text('confirm your event')
+    $('#addEventToDay').show().text('Click here to add this playlist and generate music based on your input.')
     //add level to playlist in waiting
     const $musicLevel = $('#intensitySelector').val()
     const $musicData = $('<h4>'+'Music Intensity Level: '+'</h4>'  + '<h4>'+ $musicLevel + '</h4>')
@@ -152,7 +150,6 @@ $('#setMusic').on('click', () => {
   if (newDay ===false) {
     $dayDropDownButton.text($('#day').val());
   }else {$dayDropDownButton.text('')}
-
 
 
 

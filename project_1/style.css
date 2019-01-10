@@ -1,6 +1,22 @@
-*{
-  border: 1px solid red;
+body {
+  font-family: 'Jura', sans-serif;
 }
+button{
+  font-family: 'Jura', sans-serif;
+  font-weight: bold;
+
+
+}
+
+
+button:hover{
+  color: white;
+  background-color: black;
+
+}
+/* *{
+  border: 1px solid red;
+} */
 
 /* //basic page layout */
 .header{
@@ -17,12 +33,18 @@
 }
 
 .createNewPlayListContainer{
+  text-align: center;
   width: 50%;
   display: inline-block;
+  background-color: silver;
+  border-radius: 5px;
+  padding-bottom: 5px;
 }
+
 .activePlayListContianer{
   width: 49%;
   display: inline-block;
+
 }
 .dailyEventsToBeAddedContainer{
   width: 49%;
@@ -74,6 +96,10 @@
   width: 49%;
   float:right;
   text-align: center;
+  background-color: lightblue;
+  border-radius: 5px;
+  margin: 5px 5px;
+
 
 }
 #activePlayListContianer{
