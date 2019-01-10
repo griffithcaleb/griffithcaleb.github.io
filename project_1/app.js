@@ -224,11 +224,15 @@ $('#setNameButton').on('click',() => {
 
 //add day to active playlists
  $('#submitPlayList').on('click',() => {
-   const cloneOfData = $('#playlistInWaitingData').children().clone();
   $('#playlistInWaitingData').children().remove()
-  const $playlist = $('<div>').addClass('activePlayLists')
-  $('#activePlayListContianer').append($playlist)
-  $playlist.append(cloneOfData)
+  newDay = false;
+  $('#addAnotherEvent').hide()
+  $('#nameEventInput').val('');
+  $('#startTime').val('');
+  $('#endTime').val('');
+  $('#addEventButton').show()
+  $('.donebuttons').hide();
+
  })
 
 //add another button
