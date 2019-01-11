@@ -4,7 +4,7 @@ let randomSongNumber = Math.floor(Math.random() * Math.floor(200))
 let userInput = ''
 let timeOfPlayList = 0;
 let duration = 0;
-let newDay = false;
+let sameDay = false;
 //arrays of music genres for random searching to
 // populate playlist, each one associated with a level of musical intensity
 
@@ -140,12 +140,14 @@ $('#setMusic').on('click', () => {
   $('#addEventToDay').on('click', () => {
 
   const $playlistDiv = $('<div>').addClass('playlist'+$('#day').val())
-  if (newDay === false){
-  $('#activePlayListContianer').append($playlistDiv);
-  }else {$('.playlist'+$('#day').val()).append($playlistDiv)}
-
   const $dayDropDownButton = $('<button>').addClass('dayDropDownButton');
-  $playlistDiv.append($dayDropDownButton);
+
+  if (sameDay === true){
+  $('.playlist'+$('#day').val()).append($playlistDiv)
+  }else {$('#activePlayListContianer').append($playlistDiv);
+$playlistDiv.append($dayDropDownButton);}
+
+
   const $dayDropDownContent = $('<div>').addClass('dayDropDownContent');
   $playlistDiv.append($dayDropDownContent);
   const $playlistDropDownButton = $('<button>').addClass('dropDown');
@@ -155,9 +157,10 @@ $('#setMusic').on('click', () => {
   const $dropDownContent = $('<div>').addClass('dropDownContent');
   $dayDropDownContent.append($dropDownContent);
   $playlistDropDownButton.text($('#startTime').val());
-  if (newDay ===false) {
+
+  if (sameDay ===false) {
     $dayDropDownButton.text($('#day').val());
-  }else {$dayDropDownButton.text('')}
+  }
 
 
 
@@ -165,8 +168,17 @@ $('#setMusic').on('click', () => {
   $('#submitPlayList').show();
   $('#addAnotherEvent').show();
   $('#deleteAndStartOverButton').hide();
+if (sameDay ===false){
   $playlistDiv.append($dayDropDownButton,$dayDropDownContent)
   $dayDropDownContent.append($playlistDropDownButton,$dropDownContent)
+
+} else {
+  $playlistDiv.append($dayDropDownContent)
+  $dayDropDownContent.append($playlistDropDownButton,$dropDownContent)
+
+}
+
+
 
 
   //dropDowns
@@ -216,7 +228,7 @@ $('#setMusic').on('click', () => {
  $('#submitPlayList').on('click',() => {
   $('#playlistInWaitingData').children().remove()
   $('<h4>').text('Daily Events').appendTo($('#playlistInWaitingData'))
-  newDay = false;
+  sameDay = false;
   $('#addAnotherEvent').hide()
   $('#nameEventInput').val('');
   $('#startTime').val('');
@@ -229,7 +241,7 @@ $('#setMusic').on('click', () => {
 //add another button
 $('#addAnotherEvent').on('click',() => {
   //reseting values
-  newDay = true;
+  sameDay = true;
   $('#addAnotherEvent').hide()
   $('#nameEventInput').val('');
   $('#startTime').val('');
