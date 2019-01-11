@@ -63,7 +63,7 @@ button:hover{
 }
 #nameEventInput{
   border-radius: 5px;
-  color:white;
+  color:black;
   border: 1px solid white;
 }
 .nameEvent > button{
@@ -124,7 +124,9 @@ button:hover{
 .donebuttons{
   width: 50%;
   display: none;
-  margin-top:20px
+  margin-top:10px;
+  padding: 5px;
+  width: 45%;
 }
 
 #addEventToDay{
