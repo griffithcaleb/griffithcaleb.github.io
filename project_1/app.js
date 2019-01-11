@@ -116,6 +116,7 @@ $('#setMusic').on('click', () => {
     $('.donebuttons').show();
     $('#submitPlayList').hide();
     $('#addEventToDay').show().text('Click here to add this playlist and generate music based on your input.')
+    $('#deleteAndStartOverButton').show();
     //add level to playlist in waiting
     const $musicLevel = $('#intensitySelector').val()
     const $musicData = $('<h4>'+'Music Intensity Level: '+'</h4>'  + '<h4>'+ $musicLevel + '</h4>')
@@ -158,7 +159,7 @@ $('#setMusic').on('click', () => {
   $('#addAnotherEvent').show();
   $('#deleteAndStartOverButton').hide();
   $playlistDiv.append($dayDropDownButton,$dayDropDownContent)
-  dayDropDownContent.append($playlistDropDownButton,$dropDownContent)
+  $dayDropDownContent.append($playlistDropDownButton,$dropDownContent)
 
 
   //dropDowns
@@ -184,9 +185,9 @@ $('#setMusic').on('click', () => {
           timeOfPlayList += time;
           if (timeOfPlayList < duration) {
 
-            let $image = $('<img>').addClass('albumImage').attr('src',parsedData.results[i].artworkUrl100)
+            let $image = $('<img>').addClass('albumImage').attr('src',parsedData.results[i].artworkUrl60)
             $dropDownContent.append($image)
-            let trackTitle = parsedData.results[i].trackName
+            let trackTitle = $('<p>'+parsedData.results[i].trackName+'</p>')
             $dropDownContent.append(trackTitle)
           } else {
             break
@@ -208,6 +209,7 @@ $('#setMusic').on('click', () => {
 //add day to active playlists
  $('#submitPlayList').on('click',() => {
   $('#playlistInWaitingData').children().remove()
+  $('<h4>').text('Daily Events').appendTo($('#playlistInWaitingData'))
   newDay = false;
   $('#addAnotherEvent').hide()
   $('#nameEventInput').val('');
@@ -233,23 +235,24 @@ $('#addAnotherEvent').on('click',() => {
 $('#backToDateButton').on('click',() => {
   $('.nameEvent').hide();
   $('.calendar').show()
-  $('#playlistInWaitingData').children().eq(1).remove()
+  $('#playlistInWaitingData').children().eq(0).text('Daily Events')
 })
 
 $("#backToNameButton").on('click',() => {
    $('.whatTime').hide();
    $('.nameEvent').show();
-   $('#playlistInWaitingData').children().eq(2).remove()
+   $('#playlistInWaitingData').children().eq(1).remove()
 })
 
 $('#backToTimeButton').on('click',() => {
   $('.slider').hide();
   $('.whatTime').show();
-  $('#playlistInWaitingData').children().eq(3).remove()
+  $('#playlistInWaitingData').children().eq(2).remove()
 })
 
 $('#deleteAndStartOverButton').on('click',() => {
   $('#playlistInWaitingData').children().remove()
+  $('<h4>').text('Daily Events').appendTo($('#playlistInWaitingData'))
   $('#nameEventInput').val('');
   $('#startTime').val('');
   $('#endTime').val('');

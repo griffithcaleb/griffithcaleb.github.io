@@ -4,6 +4,8 @@ body {
 button{
   font-family: 'Jura', sans-serif;
   font-weight: bold;
+  font-size: 13px;
+  border-radius: 3px;
 
 
 }
@@ -89,7 +91,7 @@ button:hover{
 
 #submitPlayList{
   display: block;
-  font-size: 36px;
+  font-size: 12px;
   margin: 0 auto
 }
 #playlistInWaiting{
@@ -108,7 +110,7 @@ button:hover{
   display: inline-block;
   float:right;
   display: flex;
-  justify-content: center;
+
 
 }
 .activePlayLists{
@@ -128,4 +130,7 @@ button:hover{
 }
 .hide{
   display:none;
+}
+img > p{
+  font-size: 12px;
 }
