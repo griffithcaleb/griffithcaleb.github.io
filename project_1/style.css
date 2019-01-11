@@ -1,5 +1,15 @@
 body {
   font-family: 'Jura', sans-serif;
+  background-color:#261f38;
+}
+.wrapper{
+  margin: 0 auto;
+  height:100%;
+  width: 95%;
+  background-color:#d6d0e5;
+  padding:10px;
+  border-radius: 5px;
+  border: 2px solid white;
 }
 button{
   font-family: 'Jura', sans-serif;
@@ -162,7 +172,7 @@ button:hover{
   display: inline-block;
   float:right;
   display: flex;
-  border: 2px solid black;
+  border: 2px solid white;
   border-radius: 5px;
   font-size: 10px;
   padding: 10px;
@@ -170,6 +180,7 @@ button:hover{
   background-color: #494868;
 
 }
+
 .activePlayLists{
   width: 49%;
   display: inline-block;
@@ -199,18 +210,21 @@ button:hover{
   border: 1px solid white;
   color: white;
 }
+.dayDropDownContent > button{
+  display: block;
+}
 .dropDown{
   width: min-content;
   background-color: #a5a8c3;
   border-radius: 5px;
   border: 1px solid white;
   color: white;
+
 }
 img{
   width: 100%;
 }
 img:hover{
-  transition-duration: 2s;
-  transform: scale(2);
+  transform: scale(1.5);
   border-radius: 3px
 }
