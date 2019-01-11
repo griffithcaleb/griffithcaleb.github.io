@@ -150,7 +150,7 @@ $playlistDiv.append($dayDropDownButton);}
   $dayDropDownContent.append($playlistDropDownButton);
   const $nameOfEvent = $('#nameEventInput').val();
   $dayDropDownContent.append($nameOfEvent+ " : ");
-  const $dropDownContent = $('<div>').addClass('hide');
+  const $dropDownContent = $('<div>').addClass('hide dropDown');
   $dayDropDownContent.append($dropDownContent);
   $playlistDropDownButton.text($('#startTime').val());
   const $deletePlayListButton = $('<button>').addClass('deletePlayListButton').text('delete')
@@ -200,7 +200,7 @@ if (sameDay ===false){
           timeOfPlayList += time;
           if (timeOfPlayList < duration) {
             let $linkToTrack = $('<a>').attr('href',parsedData.results[i].trackViewUrl)
-            let $image =  $('<img>').addClass('albumImage').attr('src',parsedData.results[i].artworkUrl60)
+            let $image =  $('<img>').addClass('albumImage').attr('src',parsedData.results[i].artworkUrl100)
             $linkToTrack.append($image)
             $dropDownContent.append($linkToTrack)
             let trackTitle = $('<p>'+parsedData.results[i].trackName+'</p>')

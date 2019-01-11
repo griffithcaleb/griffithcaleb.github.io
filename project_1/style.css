@@ -46,6 +46,7 @@ button:hover{
   border-radius: 5px;
   padding-bottom: 5px;
   color:white;
+  border: 1px solid white;
 
 }
 
@@ -166,6 +167,7 @@ button:hover{
   font-size: 10px;
   padding: 10px;
   overflow: scroll;
+  background-color: #494868;
 
 }
 .activePlayLists{
@@ -192,10 +194,23 @@ button:hover{
 }
 .dayDropDownContent{
   width: min-content;
-
-}
-.dayDropDownContent > div{
   background-color: #a5a8c3;
   border-radius: 5px;
-  border: 1px solid black;
+  border: 1px solid white;
+  color: white;
+}
+.dropDown{
+  width: min-content;
+  background-color: #a5a8c3;
+  border-radius: 5px;
+  border: 1px solid white;
+  color: white;
+}
+img{
+  width: 100%;
+}
+img:hover{
+  transition-duration: 2s;
+  transform: scale(2);
+  border-radius: 3px
 }
