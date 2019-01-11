@@ -8,7 +8,7 @@ let sameDay = false;
 //arrays of music genres for random searching to
 // populate playlist, each one associated with a level of musical intensity
 
-const level1 = ['chants', 'raga', 'oceansounds', 'harp', 'birdsongs']
+const level1 = ['chants', 'raga', 'oceansounds', 'harp', 'birdsongs','classical']
 const level2 = ['classical', 'ambientmusic', 'acoustic', 'folk', 'bluegrass']
 const level3 = ['traditionaljazz', 'ragtime', 'swingmusic', 'smoothjazz', "bigBand"]
 const level4 = ['blues', 'gospel', 'electricjazz', 'bebop', 'jazzfusion']
@@ -17,7 +17,7 @@ const level6 = ['funk', 'classicrock', 'rock', 'folkrock', 'singerSongwriter']
 const level7 = ['pop', 'poppunk', 'Dance-pop‎', 'house', '90spop']
 const level8 = ['dancemusic', 'chillwave', 'electro', 'drumandbass', 'triphop']
 const level9 = ['hiphop', 'eastcoasthiphop', 'westcoasthiphop', 'hardcore', 'trap']
-const level10 = ['EDM', 'dubstep', 'heavymetal', 'metal', 'EDM']
+const level10 = ['EDM', 'dubstep', 'heavymetal', 'metal', 'EDM','hiphop']
 
 $(() => {
 //begin button,//begins carousel of divs of user input
@@ -91,7 +91,7 @@ $('#setNameButton').on('click',() => {
   })
   // changing userInput based on slider positon
   //
- const converUserInput = (num) => {
+ const convertUserInput = (num) => {
    let userInput = ''
    if (num === "1") {
      userInput = level1[randomGenreNumber]
@@ -129,14 +129,10 @@ $('#setMusic').on('click', () => {
     const $musicData = $('<h4>'+'Music Intensity Level: '+'</h4>'  + '<h4>'+ $musicLevel + '</h4>')
     $('#playlistInWaitingData').append($musicData)
 
-  userInput = converUserInput($('#intensitySelector').val());
+  userInput = convertUserInput($('#intensitySelector').val());
 
   })
-//declaring varibales outside click event
-
-
-
-  //final button for each days playlist
+//final button for each days playlist
   $('#addEventToDay').on('click', () => {
 
   const $playlistDiv = $('<div>').addClass('playlist'+$('#day').val())
@@ -154,10 +150,10 @@ $playlistDiv.append($dayDropDownButton);}
   $dayDropDownContent.append($playlistDropDownButton);
   const $nameOfEvent = $('#nameEventInput').val();
   $dayDropDownContent.append($nameOfEvent+ " : ");
-  const $dropDownContent = $('<div>').addClass('dropDownContent');
+  const $dropDownContent = $('<div>').addClass('hide');
   $dayDropDownContent.append($dropDownContent);
   $playlistDropDownButton.text($('#startTime').val());
-
+  const $deletePlayListButton = $('<button>').addClass('deletePlayListButton').text('delete')
   if (sameDay ===false) {
     $dayDropDownButton.text($('#day').val());
   }
@@ -170,11 +166,11 @@ $playlistDiv.append($dayDropDownButton);}
   $('#deleteAndStartOverButton').hide();
 if (sameDay ===false){
   $playlistDiv.append($dayDropDownButton,$dayDropDownContent)
-  $dayDropDownContent.append($playlistDropDownButton,$dropDownContent)
+  $dayDropDownContent.append($playlistDropDownButton,$dropDownContent,$deletePlayListButton)
 
 } else {
   $playlistDiv.append($dayDropDownContent)
-  $dayDropDownContent.append($playlistDropDownButton,$dropDownContent)
+  $dayDropDownContent.append($playlistDropDownButton,$dropDownContent,$deletePlayListButton)
 
 }
 
@@ -188,7 +184,10 @@ if (sameDay ===false){
     $dayDropDownButton.on('click',(event) => {
       $(event.target).siblings().toggleClass('hide')
     })
-
+   //delete playlist button
+    $('.deletePlayListButton').on('click',(event) => {
+      $(event.target).parent().remove()
+    })
 
     //api call
     $.ajax({
@@ -203,9 +202,10 @@ if (sameDay ===false){
           let time = parsedData.results[i].trackTimeMillis
           timeOfPlayList += time;
           if (timeOfPlayList < duration) {
-
-            let $image = $('<img>').addClass('albumImage').attr('src',parsedData.results[i].artworkUrl60)
-            $dropDownContent.append($image)
+            let $linkToTrack = $('<a>').attr('href',parsedData.results[i].trackViewUrl)
+            let $image =  $('<img>').addClass('albumImage').attr('src',parsedData.results[i].artworkUrl60)
+            $linkToTrack.append($image)
+            $dropDownContent.append($linkToTrack)
             let trackTitle = $('<p>'+parsedData.results[i].trackName+'</p>')
             $dropDownContent.append(trackTitle)
           } else {
@@ -278,6 +278,9 @@ $('#deleteAndStartOverButton').on('click',() => {
   $('.donebuttons').hide();
 
 })
+
+
+
 
 
 })

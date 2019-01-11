@@ -6,6 +6,7 @@ button{
   font-weight: bold;
   font-size: 13px;
   border-radius: 3px;
+  margin-bottom: 5px;
 
 
 }
@@ -29,9 +30,12 @@ button:hover{
   display: inline-block;
 }
 .activePlayListsHeader{
-  width:49%;
-  float: right;
+
+  width:47%;
   display: inline-block;
+  padding: 2px;
+  text-align: center;
+
 }
 
 .createNewPlayListContainer{
@@ -43,9 +47,6 @@ button:hover{
   padding-bottom: 5px;
 }
 
-.activePlayListContianer{
-  width: 49%;
-  display: inline-block;
 
 }
 .dailyEventsToBeAddedContainer{
@@ -106,11 +107,15 @@ button:hover{
 }
 #activePlayListContianer{
   height: 100%;
-  width: 49%;
+  width: 44%;
   display: inline-block;
   float:right;
   display: flex;
-
+  border: 2px solid black;
+  border-radius: 5px;
+  font-size: 10px;
+  padding: 10px;
+  overflow: scroll;
 
 }
 .activePlayLists{
@@ -118,6 +123,7 @@ button:hover{
   display: inline-block;
   float:right;
   text-align: center;
+  border: 1px solid black;
 }
 #addAnotherEvent{
   display:none;
@@ -131,6 +137,14 @@ button:hover{
 .hide{
   display:none;
 }
-img > p{
-  font-size: 12px;
+#activePlayListContianer > button{
+  display: inline-block;
+}
+.playlist{
+  border:1px solid black;
+  padding:5px;
+  border-radius: 5px;
+}
+.dayDropDownContent{
+  width: min-content;
 }
