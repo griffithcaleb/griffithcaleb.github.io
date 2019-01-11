@@ -232,8 +232,12 @@ button:hover {
 
 .dayDropDownContent>button {
   display: block;
+  background-color: white;
+  color:black;
 }
-
+.dayDropDownContent >p{
+  color: white;
+}
 .dropDown {
   width: min-content;
   background-color: #a5a8c3;

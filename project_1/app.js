@@ -149,7 +149,7 @@ $playlistDiv.append($dayDropDownButton);}
   const $playlistDropDownButton = $('<button>').addClass('dropDown');
   $dayDropDownContent.append($playlistDropDownButton);
   const $nameOfEvent = $('#nameEventInput').val();
-  $dayDropDownContent.append($nameOfEvent+ " : ");
+  $dayDropDownContent.append($('<p>'+$nameOfEvent +" : " + "</p>"));
   const $dropDownContent = $('<div>').addClass('hide dropDown');
   $dayDropDownContent.append($dropDownContent);
   $playlistDropDownButton.text($('#startTime').val());
