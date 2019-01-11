@@ -1,161 +1,169 @@
 body {
   font-family: 'Jura', sans-serif;
-  background-color:#261f38;
+  background-color: #261f38;
 }
-.wrapper{
+
+.header {
+  width: 100%
+}
+
+.wrapper {
   margin: 0 auto;
-  height:100%;
+  height: 100%;
   width: 95%;
-  background-color:#d6d0e5;
-  padding:10px;
+  background-color: #d6d0e5;
+  padding: 10px;
   border-radius: 5px;
   border: 2px solid white;
 }
-button{
+
+button {
   font-family: 'Jura', sans-serif;
   font-weight: bold;
   font-size: 13px;
   border-radius: 3px;
   margin-bottom: 5px;
-
-
 }
 
-
-button:hover{
+button:hover {
   color: white;
-  background-color: rgb(192,192,192,.5)
-
+  background-color: rgb(192, 192, 192, .5)
 }
-/* *{
-  border: 1px solid red;
-} */
 
-/* //basic page layout */
-.header{
-  width:100%
-}
-.addAPlayListHeader{
-  width:50%;
+.addAPlayListHeader {
+  width: 50%;
   display: inline-block;
+  font-size: 1.5;
+  line-height: .5em;
 }
-.activePlayListsHeader{
 
-  width:47%;
+.addAPlayListHeader h1 {
+  font-weight: bolder;
+  font-size: 36px;
+}
+
+.activePlayListsHeader {
+  width: 47%;
   display: inline-block;
   padding: 2px;
   text-align: center;
-
 }
 
-.createNewPlayListContainer{
+.createNewPlayListContainer {
   text-align: center;
   width: 50%;
   display: inline-block;
   background-color: #494868;
   border-radius: 5px;
   padding-bottom: 5px;
-  color:white;
+  color: white;
   border: 1px solid white;
-
 }
 
-
-
-.dailyEventsToBeAddedContainer{
+.dailyEventsToBeAddedContainer {
   width: 49%;
   display: inline-block;
- margin: 0 auto;
+  margin: 0 auto;
 }
-.nameEvent{
+
+.nameEvent {
   width: 50%;
   display: none;
   padding: 10px;
 }
-#nameEventInput{
+
+#nameEventInput {
   border-radius: 5px;
-  color:black;
+  color: black;
   border: 1px solid white;
 }
-.nameEvent > button{
+
+.nameEvent>button {
   display: block;
   margin: 5px auto;
 }
-.calendar{
+
+.calendar {
   width: 50%;
   display: none;
-  padding:5px;
+  padding: 5px;
 }
-#day{
+
+#day {
   border-radius: 5px;
-  color:black;
+  color: black;
   border: 1px solid white;
 }
-#startTime{
+
+#startTime {
   border-radius: 5px;
-  color:black;
+  color: black;
   border: 1px solid white;
 }
-#endTime{
+
+#endTime {
   border-radius: 5px;
-  color:black;
+  color: black;
   border: 1px solid white;
 }
-.whatTime{
+
+.whatTime {
   width: 25%;
   display: none;
   padding: 25px;
-
 }
-.whatTime > button{
+
+.whatTime>button {
   display: block;
   margin: 5px auto
 }
-.slider{
+
+.slider {
   font-size: 12px;
   width: 40%;
   display: none;
   padding: 5px;
 }
-.slider > button {
+
+.slider>button {
   display: inline-block;
   margin: 25px auto;
   margin-bottom: 5px;
 }
 
-#sliderInfo{
+#sliderInfo {
   position: absolute;
   top: 220px;
-  background:coral;
+  background: coral;
   opacity: 1;
   border-radius: 3px;
-  padding:2px;
-
+  padding: 2px;
 }
-.donebuttons{
+
+.donebuttons {
   width: 50%;
   display: none;
-  margin-top:10px;
+  margin-top: 10px;
   padding: 5px;
   width: 45%;
 }
 
-#addEventToDay{
-  display:block;
+#addEventToDay {
+  display: block;
   margin: 20px auto;
   margin-bottom: 20px;
   padding: 5px;
-
 }
 
-#submitPlayList{
+#submitPlayList {
   display: block;
   font-size: 12px;
   margin: 0 auto
 }
-#playlistInWaiting{
+
+#playlistInWaiting {
   width: 49%;
-  float:right;
+  float: right;
   text-align: center;
   background-color: #a5a8c3;
   border-radius: 5px;
@@ -163,14 +171,14 @@ button:hover{
   color: white;
   font-size: 12px;
   line-height: 1.5em;
-
-
+  border: 2px solid white;
 }
-#activePlayListContianer{
+
+#activePlayListContianer {
   height: 100%;
   width: 44%;
   display: inline-block;
-  float:right;
+  float: right;
   display: flex;
   border: 2px solid white;
   border-radius: 5px;
@@ -178,53 +186,58 @@ button:hover{
   padding: 10px;
   overflow: scroll;
   background-color: #494868;
-
 }
 
-.activePlayLists{
+.activePlayLists {
   width: 49%;
   display: inline-block;
-  float:right;
+  float: right;
   text-align: center;
   border: 1px solid black;
 }
-#addAnotherEvent{
-  display:none;
+
+#addAnotherEvent {
+  display: none;
 }
-#deleteAndStartOverButton{
+
+#deleteAndStartOverButton {
   margin: 0 auto;
 }
-.albumImage{
+
+.albumImage {
   display: block;
 }
-.hide{
-  display:none;
+
+.hide {
+  display: none;
+}
 }
 
-
-}
-.dayDropDownContent{
+.dayDropDownContent {
   width: min-content;
   background-color: #a5a8c3;
   border-radius: 5px;
   border: 1px solid white;
   color: white;
 }
-.dayDropDownContent > button{
+
+.dayDropDownContent>button {
   display: block;
 }
-.dropDown{
+
+.dropDown {
   width: min-content;
   background-color: #a5a8c3;
   border-radius: 5px;
   border: 1px solid white;
   color: white;
-
 }
-img{
+
+img {
   width: 100%;
 }
-img:hover{
+
+img:hover {
   transform: scale(1.5);
   border-radius: 3px
 }
