@@ -79,8 +79,15 @@ $('#setNameButton').on('click',() => {
     // console.log(duration);
   })
   //slider logic // add blurb about intensity levels during mouseover
-  $('#intensitySelector').on('mouseenter mouseleave', () => {
+  const sliderInfo = $('<p>').addClass('hide')
+  $('#intensitySelector').on('input', () => {
+    sliderInfo.appendTo($('.slider'))
+    sliderInfo.text('your level is currently set to level : ' + $('#intensitySelector').val())
 
+  })
+  $('#intensitySelector').on('mouseover', () => {
+    sliderInfo.text('your level is currently set to level : ' + $('#intensitySelector').val())
+    sliderInfo.toggleClass('hide');
   })
   // changing userInput based on slider positon
   //
@@ -116,7 +123,7 @@ $('#setMusic').on('click', () => {
     $('.donebuttons').show();
     $('#submitPlayList').hide();
     $('#addEventToDay').show().text('Click here to add this playlist and generate music based on your input.')
-    $('#deleteAndStartOverButton').show();
+    $('#deleteAndStartOverButton').show()
     //add level to playlist in waiting
     const $musicLevel = $('#intensitySelector').val()
     const $musicData = $('<h4>'+'Music Intensity Level: '+'</h4>'  + '<h4>'+ $musicLevel + '</h4>')
@@ -202,7 +209,6 @@ $('#setMusic').on('click', () => {
         console.log('bad request');
       }
     )
-
 })
 
 
