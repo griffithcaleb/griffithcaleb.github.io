@@ -79,7 +79,7 @@ $('#setNameButton').on('click',() => {
     // console.log(duration);
   })
   //slider logic // add blurb about intensity levels during mouseover
-  const sliderInfo = $('<p>').addClass('hide')
+  const sliderInfo = $('<p>').addClass('hide').attr('id','sliderInfo')
   $('#intensitySelector').on('input', () => {
     sliderInfo.appendTo($('.slider'))
     sliderInfo.text('your level is currently set to level : ' + $('#intensitySelector').val())
@@ -173,9 +173,6 @@ if (sameDay ===false){
   $dayDropDownContent.append($playlistDropDownButton,$dropDownContent,$deletePlayListButton)
 
 }
-
-
-
 
   //dropDowns
     $playlistDropDownButton.on('click',(event) => {

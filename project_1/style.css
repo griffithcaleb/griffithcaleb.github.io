@@ -14,7 +14,7 @@ button{
 
 button:hover{
   color: white;
-  background-color: black;
+  background-color: rgb(192,192,192,.5)
 
 }
 /* *{
@@ -42,13 +42,15 @@ button:hover{
   text-align: center;
   width: 50%;
   display: inline-block;
-  background-color: silver;
+  background-color: #494868;
   border-radius: 5px;
   padding-bottom: 5px;
+  color:white;
+
 }
 
 
-}
+
 .dailyEventsToBeAddedContainer{
   width: 49%;
   display: inline-block;
@@ -57,36 +59,79 @@ button:hover{
 .nameEvent{
   width: 50%;
   display: none;
+  padding: 10px;
+}
+#nameEventInput{
+  border-radius: 5px;
+  color:white;
+  border: 1px solid white;
+}
+.nameEvent > button{
+  display: block;
+  margin: 5px auto;
 }
 .calendar{
   width: 50%;
   display: none;
+  padding:5px;
+}
+#day{
+  border-radius: 5px;
+  color:black;
+  border: 1px solid white;
+}
+#startTime{
+  border-radius: 5px;
+  color:black;
+  border: 1px solid white;
+}
+#endTime{
+  border-radius: 5px;
+  color:black;
+  border: 1px solid white;
 }
 .whatTime{
-  width: 50%;
+  width: 25%;
   display: none;
+  padding: 25px;
+
+}
+.whatTime > button{
+  display: block;
+  margin: 5px auto
 }
 .slider{
-  width: 50%;
+  font-size: 12px;
+  width: 40%;
   display: none;
+  padding: 5px;
+}
+.slider > button {
+  display: inline-block;
+  margin: 25px auto;
+  margin-bottom: 5px;
+}
+
+#sliderInfo{
+  position: absolute;
+  top: 220px;
+  background:coral;
+  opacity: 1;
+  border-radius: 3px;
+  padding:2px;
+
 }
 .donebuttons{
   width: 50%;
   display: none;
+  margin-top:20px
 }
-.autoplay{
-  text-align: center;
-  width: 50%;
-  display: none;
 
-}
-#autoplay{
-  margin:0 auto;
-}
 #addEventToDay{
   display:block;
   margin: 20px auto;
   margin-bottom: 20px;
+  padding: 5px;
 
 }
 
@@ -99,9 +144,12 @@ button:hover{
   width: 49%;
   float:right;
   text-align: center;
-  background-color: lightblue;
+  background-color: #a5a8c3;
   border-radius: 5px;
   margin: 5px 5px;
+  color: white;
+  font-size: 12px;
+  line-height: 1.5em;
 
 
 }
@@ -137,14 +185,15 @@ button:hover{
 .hide{
   display:none;
 }
-#activePlayListContianer > button{
-  display: inline-block;
-}
-.playlist{
-  border:1px solid black;
-  padding:5px;
-  border-radius: 5px;
+
+
 }
 .dayDropDownContent{
   width: min-content;
+
+}
+.dayDropDownContent > div{
+  background-color: #a5a8c3;
+  border-radius: 5px;
+  border: 1px solid black;
 }
