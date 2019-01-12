@@ -23,6 +23,7 @@ button {
   font-size: 13px;
   border-radius: 3px;
   margin-bottom: 5px;
+  border: 2px solid black;
 }
 
 button:hover {
@@ -260,9 +261,18 @@ img:hover {
   body {
     background-color: black;
   }
-  button:hover{
-    background-color: grey;
+  button{
+    font-size: 20px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    text-align: center;
+    border-radius: 3px;
+    background-color: darkgrey;
   }
+  button:hover{
+    background-color: black;
+  }
+
   .addAPlayListHeader h1 {
     font-weight: bolder;
     font-size: 40px;
@@ -283,7 +293,7 @@ img:hover {
     color: black;
   }
 #addEventButton{
-  font-size: 16px;
+  font-size: 20px;
   border: 2px solid black;
 
 }
@@ -294,6 +304,7 @@ img:hover {
 .activePlayListsHeader{
   display: none;
 }
+
 
 .createNewPlayListContainer {
   text-align: center;
@@ -395,15 +406,35 @@ img:hover {
   padding: 5px;
   width: 45%;
 }
+.donebuttons > button{
+  font-size: 14px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  text-align: center;
+  border-radius: 3px;
+  background-color: darkgrey;
+}
 
 .dropDown {
   width: min-content;
-  background-color:#F0F8FF;
+  background-color:#87CEFA;
   border-radius: 5px;
   border: 1px solid white;
-  color: white;
+  color: black;
 }
 
+#addAnotherEvent{
+  font-size: 20px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  text-align: center;
+  border-radius: 3px;
+  background-color: darkgrey;
+  border: 2px solid black;
+}
 
+.deletePlayListButton{
+font-size: 12px;
+}
 
 }
