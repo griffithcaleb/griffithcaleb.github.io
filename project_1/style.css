@@ -396,5 +396,14 @@ img:hover {
   width: 45%;
 }
 
+.dropDown {
+  width: min-content;
+  background-color:#F0F8FF;
+  border-radius: 5px;
+  border: 1px solid white;
+  color: white;
+}
+
+
 
 }
