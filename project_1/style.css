@@ -254,3 +254,147 @@ img:hover {
   transform: scale(1.5);
   border-radius: 3px
 }
+ /* media query */
+ @media only screen and (max-width: 600px) {
+
+  body {
+    background-color: black;
+  }
+  button:hover{
+    background-color: grey;
+  }
+  .addAPlayListHeader h1 {
+    font-weight: bolder;
+    font-size: 40px;
+  }
+  .wrapper {
+    margin: 0 auto;
+    height: 100%;
+    width: 95%;
+    background-color: grey;
+    padding: 10px;
+    border-radius: 5px;
+    border: 2px solid white;
+  }
+  .addAPlayListHeader{
+    display: block;
+    width: 100%;
+    text-align: center;
+    color: black;
+  }
+#addEventButton{
+  font-size: 16px;
+  border: 2px solid black;
+
+}
+#addEventButton:hover{
+  background-color: white;
+  color: black;
+}
+.activePlayListsHeader{
+  display: none;
+}
+
+.createNewPlayListContainer {
+  text-align: center;
+  width: 100%;
+  display: block;
+  background-color: grey;
+  border-radius: 5px;
+  padding-bottom: 5px;
+  color: white;
+  border: 2px solid black ;
+}
+#playlistInWaiting{
+  display: none;
+}
+#activePlayListContianer {
+  margin: 10% 7% 10% 10%;
+  height: 100%;
+  width: 80%;
+  display:inline;
+  border: 2px solid white;
+  border-radius: 5px;
+  font-size: 12px;
+  overflow: scroll;
+  background-color: grey;
+}
+.nameEvent {
+  width: 100%;
+  display: none;
+  padding: 10px;
+}
+.nameEvent>button {
+  display: block;
+  margin: 5px auto;
+}
+
+.calendar {
+  width: 90%;
+  display: none;
+  padding: 5px;
+}
+
+#day {
+  border-radius: 5px;
+  color: black;
+  border: 1px solid white;
+}
+
+#startTime {
+  border-radius: 5px;
+  color: black;
+  border: 1px solid white;
+}
+
+#endTime {
+  border-radius: 5px;
+  color: black;
+  border: 1px solid white;
+}
+
+.whatTime {
+  width: 90%;
+  margin: 0 auto;
+  display: none;
+  padding: 25px;
+}
+
+.whatTime>button {
+  display: block;
+  margin: 5px auto
+}
+
+.slider {
+  font-size: 12px;
+  width: 90%;
+  display: none;
+  padding: 5px;
+
+}
+
+.slider>button {
+  display: inline-block;
+  margin: 25px auto;
+  margin-bottom: 5px;
+}
+
+#sliderInfo {
+  position: absolute;
+  top: 220px;
+  background: coral;
+  opacity: 1;
+  border-radius: 3px;
+  padding: 2px;
+}
+
+.donebuttons {
+  width: 100%;
+  display: none;
+  margin: 10px auto;
+  padding: 5px;
+  width: 45%;
+}
+
+
+}
