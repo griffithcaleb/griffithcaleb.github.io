@@ -277,4 +277,9 @@ $(() => {
     $('.donebuttons').hide();
 
   })
+  //remove modal
+ $('#removeModalButton').on('click',() => {
+   $('#modal').remove()
+ })
+
 })

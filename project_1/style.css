@@ -3,6 +3,43 @@ body {
   background-color: #261f38;
 }
 
+#modal {
+	background-color: rgba(0,0,0,0.6);
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	z-index: 1;
+	overflow: auto;
+}
+
+
+#modalContent {
+	background-color: #d6d0e5;
+	height: 39%;
+	width: 50%;
+	border-radius: 3px;
+  margin: 10% auto;
+  padding-top: 4%;
+  border-radius: 3px;
+  border: 2px solid white;
+  color: white;
+}
+#modalText{
+  height: 80%;
+  width: 80%;
+  margin: 0 auto;
+  background-color:#494868;
+  text-align: center;
+  padding:10px;
+  border-radius: 3px;
+  border: 2px solid black;
+}
+#removeModalButton{
+  font-size: 20px;
+  margin: 0 auto;
+}
 .header {
   width: 100%
 }
@@ -260,6 +297,9 @@ img:hover {
 
   body {
     background-color: black;
+  }
+  #modal{
+    display: none;
   }
   button{
     font-size: 20px;
