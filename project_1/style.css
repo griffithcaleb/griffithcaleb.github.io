@@ -26,6 +26,7 @@ body {
   border: 2px solid white;
   color: white;
 }
+
 #modalText{
   height: 80%;
   width: 80%;
@@ -258,7 +259,7 @@ button:hover {
 .hide {
   display: none;
 }
-}
+
 
 .dayDropDownContent {
   width: min-content;
