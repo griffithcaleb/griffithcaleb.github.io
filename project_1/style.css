@@ -460,7 +460,7 @@ img:hover {
   width: min-content;
   background-color:#87CEFA;
   border-radius: 5px;
-  border: 1px solid white;
+  border: 1px solid black;
   color: black;
 }
 
@@ -472,10 +472,17 @@ img:hover {
   border-radius: 3px;
   background-color: darkgrey;
   border: 2px solid black;
+
 }
 
 .deletePlayListButton{
 font-size: 12px;
 }
+.dayDropDownContent {
+    width: min-content;
+    background-color: #87CEFA;
+    border-radius: 5px;
+    border: 1px solid white;
+    color: white;
 
 }
