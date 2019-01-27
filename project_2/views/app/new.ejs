@@ -6,10 +6,11 @@
     </head>
     <body>
         <h1>New Event</h1>
-        <form action="/pghfree/new" method="POST">
+        <form action="/pghfree/userevents/new" method="POST">
             Name: <input type="text" name="title" /><br/>
-            Date and Time: <input type="text" name="dateAndTime" /><br/>
-            Location: <input type="text" name="location" /><br/>
+            Date: <input type="date" name="date" /><br/>
+            time: <input type="time" name="time" /><br/>
+            description: <input type="text" name="description" value="">
             FindOutMore:<input type="text" name="findOutMore"/><br/>
             EventPhoto: <input type="text" name="eventPhoto"/><br/>
             <input type="submit" name="" value="Create Event"/>

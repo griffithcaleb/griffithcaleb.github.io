@@ -7,6 +7,7 @@ const eventSchema = new Schema({
   location: String,
   findOutMore:String,
   eventPhoto: String,
+
 },{timestamps:true});
 
 const Event = mongoose.model('Event',eventSchema)

@@ -6,10 +6,16 @@
     </head>
     <body>
         <h1>Edit Event Page</h1>
-        <form action="/pghfree/<%=event.id%>?_method=PUT" method="POST">
+        <form action="/pghfree/usersevents/<%=event.id%>?_method=PUT" method="POST">
     		Title: <input type="text" name="title" value="<%=event.title%>"/>
-    		Date and Time: <input type="text" name="dateAndTime" value="<%=event.dateAndTime%>"/>
+    		Date: <input type="date" name="dateAndTime" value="<%=event.date%>"/>
+        Time: <input type="time" name="" value="<%=event.time%>">
         Location: <input type="text" name="location" value="<%=event.location%>"/>
+        Description: <input type="text" name="description" value="<%=event.description%>"/>
+        EventPhoto: <input type="text" name="eventPhoto" value="<%=event.location%>"/>
+
+
+
           <button type="submit" name="button">make changes</button>
         </form>
 

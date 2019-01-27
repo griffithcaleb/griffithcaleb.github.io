@@ -1,7 +1,7 @@
 import scrapy
 
 
-class QuotesSpider(scrapy.Spider):
+class PghCulturalTrustSpider(scrapy.Spider):
     name = "secondCrawler"
 
     def start_requests(self):
@@ -15,7 +15,7 @@ class QuotesSpider(scrapy.Spider):
     	for quote in response.css('.events-group'):
             yield {
                 'title': quote.css('.title a::text').extract_first(),
-				'body': quote.css('.time-wrapper .range::text').extract_first(),
+				'time': quote.css('.time-wrapper .range::text').extract_first(),
                 'location': quote.css('.venue::text').extract_first(),
                 'findOutMore': quote.css('.title a::attr(href)').extract(),
                 'eventPhoto': quote.css('.lead-image').xpath('@src').extract(),

@@ -2,7 +2,8 @@ const express = require('express');
 const router = express.Router();
 const User = require('../models/users.js');
 const Event = require('../models/events.js')
-const data = require('../models/eventbritedata.js')
+const UserEvent = require ('../models/userEvent.js')
+const data = require('../models/seedData.js')
 
 //logout button
 router.delete('/', (req, res) => {
@@ -10,8 +11,67 @@ router.delete('/', (req, res) => {
         res.redirect('/');
     });
   })
+
+//index for app
+ router.get('/',(req,res) => {
+   if(req.session.currentUser){
+     res.render('./app/pghindex.ejs')
+   }else{res.redirect('/sessions/new')}
+ })
+
+//get index of scraped events
+
+router.get('/events', (req, res)=>{
+    if(req.session.currentUser){
+      Event.
+find({
+}).
+sort({ date: 1 }).
+exec((err,foundEvents) => {
+   res.render('./app/events.ejs',{
+     events:foundEvents
+   });
+});
+} else{res.redirect('/sessions/new')}
+})
+
+//get index of user created events
+router.get('/userevents', (req, res)=>{
+    if(req.session.currentUser){
+      UserEvent.
+find({
+}).
+sort({ date: 1 }).
+exec((err,foundEvents) => {
+   res.render('./app/userevents.ejs',{
+     events:foundEvents
+   });
+});
+} else{res.redirect('/sessions/new')}
+})
+
+//show route for admin events
+router.get('/events/:id', (req, res)=>{
+  if(req.session.currentUser){
+    Event.findById(req.params.id, (err, foundEvent)=>{
+        res.render('./app/pgheventshow.ejs',{
+          event:foundEvent
+        });
+    });
+  } else {res.redirect('/sessions/new')}
+});
+
+//seed data from eventbrite
+  router.get('/seed',(req,res) => {
+    // login needed
+    Event.create(data,(err,data) => {
+      console.log(data);
+    })
+  })
+
+
 //new route for app
-router.get('/new',(req,res) => {
+router.get('/userevents/new',(req,res) => {
   if(req.session.currentUser){
       res.render('./app/new.ejs');
   } else {
@@ -19,38 +79,27 @@ router.get('/new',(req,res) => {
   }
 })
 
- //index route for app
-
-  router.get('/', (req, res)=>{
-      if(req.session.currentUser){
-        Event.
-  find({
-  }).
-  sort({ dateAndTime: -1 }).
-  exec((err,foundEvents) => {
-     res.render('./app/pghindex.ejs',{
-       events:foundEvents
-     });
-  });
-} else{res.redirect('/sessions/new')}
-})
 
 //create
 
-router.post('/new',(req,res) => {
+router.post('/userevents/new',(req,res) => {
 if(req.session.currentUser){
-  Event.create(req.body,(err,createdEvent) => {
+  UserEvent.create(req.body,(err,createdEvent) => {
+    console.log(req.body);
     console.log(createdEvent);
-    res.redirect('/pghfree')
+    res.redirect('/pghfree/userevents')
   })
 } else{res.redirect('/sessions/new')}
 })
 
+
+
+
 //show
-router.get('/:id', (req, res)=>{
+router.get('/userevents/:id', (req, res)=>{
   if(req.session.currentUser){
-    Event.findById(req.params.id, (err, foundEvent)=>{
-        res.render('./app/pghshow.ejs',{
+    UserEvent.findById(req.params.id, (err, foundEvent)=>{
+        res.render('./app/usereventshow.ejs',{
           event:foundEvent
         });
     });
@@ -59,29 +108,23 @@ router.get('/:id', (req, res)=>{
 
 
 
-//seed data from eventbrite
-router.get('/seed',(req,res) => {
-  // login needed
-  Event.create(data,(err,data) => {
-    console.log(data);
-  })
-})
+
 
 
 //delete
-router.delete('/:id',(req,res) => {
+router.delete('/userevents/:id',(req,res) => {
   if(req.session.currentUser){
-  Event.findByIdAndRemove(req.params.id,(err,data) => {
-      res.redirect('/pghfree')
+  UserEvent.findByIdAndRemove(req.params.id,(err,data) => {
+      res.redirect('/pghfree/userevents')
   })
 } else {res.redirect('/sessions/new')}
 })
 
 // edit
 
-router.get('/:id/edit', (req, res)=>{
+router.get('/userevents/:id/edit', (req, res)=>{
   if(req.session.currentUser){
-    Event.findById(req.params.id, (err, foundEvent)=>{
+    UserEvent.findById(req.params.id, (err, foundEvent)=>{
         res.render(
     		'./app/pghedit.ejs',
     		{
@@ -95,10 +138,10 @@ router.get('/:id/edit', (req, res)=>{
 //put
 
 
-router.put('/:id', (req, res)=>{
+router.put('/usersevents/:id', (req, res)=>{
   if(req.session.currentUser){
-    Event.findByIdAndUpdate(req.params.id, req.body, {new:true}, (err, updatedModel)=>{
-        res.redirect('/pghfree');
+    UserEvent.findByIdAndUpdate(req.params.id, req.body, {new:true}, (err, updatedModel)=>{
+        res.redirect('/pghfree/userevents');
     });
   } else {res.redirect('/sessions/new')}
 });
