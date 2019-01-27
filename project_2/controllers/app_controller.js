@@ -4,7 +4,7 @@ const User = require('../models/users.js');
 const Event = require('../models/events.js')
 const UserEvent = require ('../models/userEvent.js')
 const data = require('../models/seedData.js')
-
+const moment = require('moment')
 //logout button
 router.delete('/', (req, res) => {
     req.session.destroy(()=>{
@@ -44,7 +44,8 @@ find({
 sort({ date: 1 }).
 exec((err,foundEvents) => {
    res.render('./app/userevents.ejs',{
-     events:foundEvents
+     events:foundEvents,
+
    });
 });
 } else{res.redirect('/sessions/new')}
@@ -84,9 +85,11 @@ router.get('/userevents/new',(req,res) => {
 
 router.post('/userevents/new',(req,res) => {
 if(req.session.currentUser){
+  console.log(req.body.date);
   UserEvent.create(req.body,(err,createdEvent) => {
-    console.log(req.body);
-    console.log(createdEvent);
+
+
+
     res.redirect('/pghfree/userevents')
   })
 } else{res.redirect('/sessions/new')}
